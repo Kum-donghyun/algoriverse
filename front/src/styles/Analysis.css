@@ -1,0 +1,247 @@
+/* =========================
+   Analysis Page (로딩 + 완료)
+========================= */
+
+/* ── 공통 레이아웃 ── */
+.analysis-page-container,
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* ── 로딩 화면 ── */
+.loading-header {
+  margin-bottom: 40px;
+}
+
+.loading-header h1 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.loading-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.keyword-display {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* 로딩 스피너 */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 40px 0;
+}
+
+.spinner-dot {
+  width: 14px;
+  height: 14px;
+  background: #667eea;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.spinner-dot:nth-child(1) { animation-delay: -0.32s; }
+.spinner-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+.progress-section {
+  margin: 30px 0;
+  max-width: 500px;
+  width: 100%;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+/* 실제 진행률을 반영하고 싶을 때 수정 */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  /* width: 0%;  <-- 이 부분은 인라인 스타일로 제어하게 됨 (예: style={{width: `${percent}%`}}) */
+  transition: width 0.5s ease-in-out; /* 부드럽게 늘어나도록 변경 */
+  border-radius: 10px;
+}
+
+@keyframes fillProgress {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.progress-text {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* ===== 분석 완료 화면 ===== */
+.analysis-page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* 배너 스타일 (길게) */
+.analysis-header-banner {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.check-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.banner-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.banner-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.banner-desc {
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+/* 카드 스타일 (가로) */
+.analysis-cards-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 50px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.analysis-card {
+  /* 배경을 확실한 흰색으로 설정 (투명도 없음) */
+  background-color: #ffffff !important; 
+  
+  /* 내부 글자 색상이 배경에 묻히지 않도록 어두운 색으로 설정 */
+  color: #333333 !important;
+  
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  
+  /* 그림자를 조금 더 진하게 주어 배경과 분리시킵니다 */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  
+  min-width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  
+  /* 중요: 만약 부모의 투명도 영향을 받는다면 아래 속성 추가 */
+  opacity: 1 !important;
+}
+
+.analysis-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.3);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.analysis-card h4 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.analysis-card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* 분석 정보 박스 + 메인 버튼 */
+.analysis-detail-info {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 30px;
+}
+
+.analysis-detail-info h4 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.analysis-detail-info ul {
+  list-style: none;
+  padding-left: 0;
+  color: #666;
+  line-height: 2;
+}
+
+.analysis-detail-info li {
+  margin-bottom: 8px;
+}
+
+/* 버튼 스타일 */
+.view-viz-button,
+.main-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px 5px 0 0;
+  text-decoration: none;
+  text-align: center;
+}
+
+.view-viz-button:hover,
+.main-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}

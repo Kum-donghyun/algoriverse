@@ -1,0 +1,119 @@
+/* FindUserInfo.css 스타일 */
+
+.find-info-page {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  min-height: 80vh;
+}
+
+.find-info-container {
+  width: 100%;
+  max-width: 600px; /* Adjusted width */
+  background: white;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  border-radius: 12px; /* More rounded corners */
+  overflow: hidden; /* Ensures child elements conform to border radius */
+}
+
+.find-tab-header {
+  display: flex;
+  background-color: #f1f3f5;
+}
+
+.find-tab-btn {
+  flex: 1;
+  padding: 16px; /* Adjusted padding */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600; /* Bolder font */
+  color: #868e96;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.find-tab-btn.active {
+  background: white;
+  color: #343a40;
+  border-bottom: 2px solid #0073e9;
+}
+
+/* Add a container for the form content for better padding */
+.form-content {
+  padding: 24px 32px; /* Add horizontal padding */
+}
+
+.find-input-group {
+  display: flex;
+  border-bottom: 1px solid #f1f3f5; /* Lighter border */
+  align-items: center;
+  padding: 12px 0; /* Apply consistent vertical padding here */
+}
+
+.find-input-group:last-of-type {
+  border-bottom: none;
+}
+
+.find-input-group label {
+  width: 120px;
+  /* padding: 16px 0; <- Removed from here */
+  font-weight: 500;
+  font-size: 15px;
+  color: #495057;
+}
+
+.find-input-field {
+  flex: 1;
+  padding-left: 16px;
+}
+
+.find-input-field input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px; /* Rounded inputs */
+  font-size: 15px;
+  box-sizing: border-box; /* Add this to ensure consistent sizing */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.find-input-field input:focus {
+  border-color: #0073e9;
+  box-shadow: 0 0 0 2px rgba(0, 115, 233, 0.2);
+  outline: none;
+}
+
+.find-submit-btn {
+  display: block; /* To allow margin auto to work */
+  width: 60%; /* Not full width */
+  margin: 30px auto 20px; /* Top, auto horizontal, bottom */
+  padding: 12px;
+  background-color: #0073e9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.find-submit-btn:hover {
+  background-color: #005bbd;
+}
+
+.find-result-success,
+.find-result-error {
+  padding: 10px 20px 0;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.find-result-success { color: #0073e9; }
+.find-result-error { color: #e52e2e; }

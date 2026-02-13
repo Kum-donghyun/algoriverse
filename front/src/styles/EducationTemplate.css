@@ -1,0 +1,437 @@
+/* Education Template Page */
+.education-template-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding-bottom: 60px;
+}
+
+.template-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.template-header {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.template-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.template-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Template Selector */
+.template-selector {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.template-selector h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.template-card {
+    padding: 25px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.template-card:hover {
+    border-color: #667eea;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.15);
+}
+
+.template-card.active {
+    border-color: #667eea;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.template-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.template-card h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.template-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Customization */
+.customization-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.customization-section h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Preview Section */
+.preview-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.preview-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.download-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn.pdf {
+    background: #F44336;
+    color: white;
+}
+
+.download-btn.markdown {
+    background: #2196F3;
+    color: white;
+}
+
+.download-btn.image {
+    background: #4CAF50;
+    color: white;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Template Preview */
+.template-preview {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    background: #fafafa;
+    padding: 40px;
+    min-height: 800px;
+}
+
+.preview-content {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preview-title-section {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #667eea;
+}
+
+.preview-title-section h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.preview-subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Objectives */
+.preview-objectives {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #f8f9ff;
+    border-left: 4px solid #667eea;
+    border-radius: 8px;
+}
+
+.preview-objectives h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.preview-objectives ul {
+    list-style: none;
+    padding: 0;
+}
+
+.preview-objectives li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+}
+
+.preview-objectives li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Visualizations */
+.preview-visualizations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.viz-card {
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.viz-card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Activity & Assignment */
+.preview-activity,
+.preview-assignment {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: #fff8e1;
+    border-radius: 12px;
+}
+
+.preview-activity h3,
+.preview-assignment h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.activity-box,
+.assignment-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.activity-box p,
+.assignment-box p {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1rem;
+}
+
+.assignment-box ol {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.assignment-box li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Footer */
+.preview-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Help Section */
+.help-section {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.help-section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.help-list {
+    list-style: none;
+    padding: 0;
+}
+
+.help-list li {
+    padding: 15px;
+    background: #f8f9ff;
+    border-left: 4px solid #667eea;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    color: #555;
+}
+
+.help-list button {
+    display: inline;
+    padding: 0;
+    background: none;
+    border: none;
+    color: #667eea;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.help-list button:hover {
+    color: #764ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .preview-visualizations {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .template-container {
+        padding: 15px;
+    }
+
+    .template-header {
+        padding: 25px;
+    }
+
+    .template-header h1 {
+        font-size: 2rem;
+    }
+
+    .preview-content {
+        padding: 25px;
+    }
+
+    .preview-title-section h1 {
+        font-size: 2rem;
+    }
+
+    .download-buttons {
+        width: 100%;
+    }
+
+    .download-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .template-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .download-buttons {
+        flex-direction: column;
+    }
+
+    .download-btn {
+        width: 100%;
+    }
+
+    .viz-card {
+        padding: 15px;
+    }
+}

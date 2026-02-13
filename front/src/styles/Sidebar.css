@@ -1,0 +1,186 @@
+/* Sidebar.css (최종: 섹션 간격 및 헤더 간격 일관성 확보) */
+
+/* ---------- NAVIGATION (기본 레이아웃) ---------- */
+.nav-menu {
+    width: 220px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 99;
+    overflow-y: auto;
+}
+
+/* ---------- SIDEBAR 구조 스타일 (간격 조정) ---------- */
+
+/* Algoriverse 소개 타이틀 (h2) */
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0b63d6;
+    margin: 0 0 16px 0;
+    padding: 10px 0;
+    border-bottom: 2px solid #0b63d6;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+/* 제목 아이콘 (📖) */
+.sidebar-title .icon {
+    margin-right: 4px;
+    font-size: 18px;
+    color: #0b63d6;
+}
+
+/* 섹션 컨테이너 */
+.sidebar-section {
+    /* 모든 주요 섹션 간의 간격 30px로 통일 */
+    margin-bottom: 30px; 
+}
+
+/* 섹션 헤더 (h3) */
+.section-header {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0b63d6;
+    
+    /* --- 수정: 섹션 헤더의 마진을 조정하여 위/아래 간격을 일관성 있게 만듭니다. --- */
+    /* 현재 .sidebar-section의 margin-bottom이 30px이므로, 
+       헤더 마진을 통해 전체 섹션 간격을 일정하게 유지합니다.
+       (단, "플랫폼 소개"는 .sidebar-title 다음에 바로 오므로 상단 마진을 줄여야 함)
+       
+       * 이전에 .sidebar-section에 padding을 주지 않았으므로, 
+         .section-header의 상단 마진을 0으로 설정하여 섹션 시작에 붙이고, 
+         하단 마진은 내용과의 간격을 위해 12px로 유지합니다. */
+
+    margin: 0 0 12px 0; /* 상단 마진 0으로 설정하여 섹션 컨테이너에 붙입니다. */
+    
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+/* 섹션 헤더 아이콘 (🌐, ✨, 🔍, 🧩) */
+.section-header .icon {
+    margin-right: 4px;
+    font-size: 17px;
+    color: #0b63d6;
+}
+
+/* 섹션 설명 텍스트 (p) */
+.section-description {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+    padding-left: 0;
+    letter-spacing: 0.5px;
+}
+
+
+/* 일반 목록 항목 (ul) - 주요 특징 등에 사용 */
+.sidebar-section-list {
+    list-style: none; /* Remove default list style */
+    padding-left: 0;
+    margin: 0;
+}
+
+.sidebar-section-list li {
+    font-size: 13px;
+    color: #333; 
+    margin-bottom: 10px; /* Add space between items */
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+/* 핵심 기능 섹션의 특별한 목록 */
+.key-feature-list {
+    list-style: disc; 
+    padding-left: 15px;
+    margin: 0;
+}
+
+/* 핵심 기능 목록 항목 스타일 */
+.key-feature-list li {
+    font-size: 13px;
+    color: #333; 
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+/* 핵심 기능 항목의 강조 텍스트 (strong) */
+.key-feature-list li strong {
+    font-weight: 600;
+    color: #333;
+    display: block; 
+    font-size: 13px;
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+}
+
+/* 핵심 기능 항목의 서브 설명 텍스트 (span) */
+.key-feature-list li span {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 0;
+    margin-bottom: 8px; 
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+}
+
+/* 목표 섹션 하단 분리된 텍스트 */
+.goal-subtext {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 2px solid #e0e0e0;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.4;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- RESPONSIVE (모바일) ---------- */
+@media (max-width: 768px) {
+    .nav-menu {
+        left: -250px;
+        transition: left 0.3s ease;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+}
+
+/* Sidebar Navigation Link Styles */
+.sidebar-section-list li a {
+    display: block;
+    padding: 12px 15px; /* Add padding to create a box */
+    border: 1px solid #ddd; /* Add a border */
+    border-radius: 8px; /* Rounded corners for the box */
+    font-size: 16px; /* Increase font size */
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-section-list li a:hover {
+    background-color: #f0f0f0; /* Add a hover effect */
+    color: #0b63d6;
+}
+
+.sidebar-section-list li a.active {
+    background-color: #0b63d6; /* Style for the active link */
+    color: white;
+    border-color: #0b63d6;
+}

@@ -1,0 +1,32 @@
+/* Styles for the Introduce page */
+
+/* Using the #sideMenu ID from Introduce.jsx to scope the styles */
+#sideMenu .sidebar-title {
+    font-size: 24px;
+}
+
+#sideMenu .section-header {
+    font-size: 20px;
+}
+
+#sideMenu .section-description {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#sideMenu .sidebar-section-list li {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+#sideMenu .key-feature-list li strong {
+    font-size: 16px;
+}
+
+#sideMenu .key-feature-list li span {
+    font-size: 14px;
+}
+
+#sideMenu .goal-subtext {
+    font-size: 14px;
+}

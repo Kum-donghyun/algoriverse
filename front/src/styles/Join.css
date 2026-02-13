@@ -1,0 +1,71 @@
+.join-container h3 {
+  text-align: center;
+}
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Take up the full width of the container */
+}
+
+.join-input-group {
+  margin-bottom: 15px;
+}
+
+.join-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.join-form input[type="text"],
+.join-form input[type="password"],
+.join-form input[type="email"],
+.join-form input[type="tel"],
+.join-form input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.join-submit-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.join-submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.join-footer-links {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.join-input-with-button {
+  display: flex;
+  gap: 10px;
+}
+
+.join-check-btn {
+  padding: 8px 12px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.join-check-btn:hover {
+  background-color: #0056b3;
+}

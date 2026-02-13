@@ -1,0 +1,108 @@
+/* src/styles/Delete.css */
+
+.delete-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.delete-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.delete-container p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.password-confirm-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.password-confirm-form input[type="password"] {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.password-confirm-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.password-confirm-form button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Styling for the read-only ID field */
+.read-only-field {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #888; /* Slightly darker grey text */
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-top: 5px; /* Adjust spacing */
+    margin-bottom: 15px; /* Adjust spacing */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: default; /* Indicate not clickable */
+}
+
+.edit-input-group { /* Reused for consistency with Edit.jsx */
+    margin-bottom: 15px; /* Space between input groups */
+}
+
+.warning-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #f5c6cb;
+    background-color: #f8d7da;
+    border-radius: 5px;
+}
+
+.delete-account-btn {
+    background-color: #dc3545; /* Red for destructive action */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.delete-account-btn:hover {
+    background-color: #c82333;
+}

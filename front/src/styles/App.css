@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+  background: #f9f9f9;
+}
+
+/* ---------- PAGE LAYOUT ---------- */
+.container {
+  display: flex;
+}
+
+.content {
+  margin-left: 240px; /* 사이드바 너비만큼 왼쪽 여백 */
+  padding: 30px;
+  flex: 1;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* 검색창 왼쪽에 간격 추가 */
+.content input[name="keyword"] {
+  margin-left: 8px; /* 스페이스바 한번 정도의 간격 */
+}
+
+input[type="submit"] {
+  padding: 8px 14px;
+  margin-left: 6px;
+  border: none;
+  background: chocolate;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background: #b6431f;
+}
+
+/* -------------------------------------------
+   RESPONSIVE (모바일)
+------------------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    display: block;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 20px;
+  }
+}

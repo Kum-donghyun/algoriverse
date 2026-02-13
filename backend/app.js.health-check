@@ -1,0 +1,12 @@
+// Health Check 엔드포인트를 app.js에 추가해야 합니다
+// 기존 app.js의 라우트 설정 부분에 다음 코드를 추가하세요:
+
+// Health Check 엔드포인트 (CI/CD용)
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});

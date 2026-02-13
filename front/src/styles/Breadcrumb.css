@@ -1,0 +1,98 @@
+/* 브레드크럼 스타일 */
+.breadcrumb-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+    color: #667eea;
+}
+
+.breadcrumb .active {
+    color: #333;
+    font-weight: 600;
+}
+
+.breadcrumb .separator {
+    color: #ccc;
+    margin: 0 4px;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.help-btn,
+.methodology-btn {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: white;
+    color: #666;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.help-btn:hover {
+    background: #FFF3E0;
+    border-color: #FFB74D;
+    color: #F57C00;
+}
+
+.methodology-btn:hover {
+    background: #E3F2FD;
+    border-color: #42A5F5;
+    color: #1976D2;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .breadcrumb-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 15px;
+    }
+    
+    .breadcrumb {
+        font-size: 12px;
+    }
+    
+    .quick-actions {
+        width: 100%;
+    }
+    
+    .help-btn,
+    .methodology-btn {
+        flex: 1;
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}

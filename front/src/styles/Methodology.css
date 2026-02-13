@@ -1,0 +1,305 @@
+/* Methodology.css */
+
+.methodology-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.methodology-hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 16px;
+    margin-bottom: 40px;
+}
+
+.methodology-hero h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 12px;
+}
+
+.update-date {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.methodology-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.method-section {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    padding-bottom: 16px;
+    border-bottom: 3px solid #667eea;
+}
+
+/* 로직 플로우 */
+.logic-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.flow-step {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 5px solid #667eea;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.step-content h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.step-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.step-content ul li {
+    padding: 8px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.code-preview {
+    margin-top: 16px;
+    padding: 16px;
+    background: #282c34;
+    color: #abb2bf;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+.sub-step {
+    margin: 20px 0;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    border-left: 3px solid #4CAF50;
+}
+
+.sub-step strong {
+    display: block;
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 16px;
+}
+
+.formula-box {
+    padding: 20px;
+    background: #E3F2FD;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    color: #1976D2;
+    margin: 16px 0;
+}
+
+.threshold-box {
+    padding: 16px;
+    background: #FFF3E0;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.threshold-box p {
+    margin-bottom: 12px;
+    color: #F57C00;
+    font-weight: 600;
+}
+
+.note-box {
+    padding: 16px;
+    background: #FFEBEE;
+    border-radius: 8px;
+    color: #C62828;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 16px;
+}
+
+/* 한계 섹션 */
+.limitations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.limitation-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.limit-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.limit-content h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.limit-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.ethics-statement {
+    margin-top: 30px;
+    padding: 24px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+}
+
+.ethics-statement h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.principle-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.principle-box p {
+    padding: 10px 0;
+    color: #555;
+    line-height: 1.6;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.principle-box p:last-child {
+    border-bottom: none;
+}
+
+/* 피드백 섹션 */
+.feedback-section {
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+}
+
+.feedback-desc {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.feedback-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feedback-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Footer */
+.back-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.back-button {
+    padding: 12px 30px;
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .methodology-hero {
+        padding: 40px 20px;
+    }
+    
+    .methodology-hero h1 {
+        font-size: 28px;
+    }
+    
+    .method-section {
+        padding: 24px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    .flow-step {
+        flex-direction: column;
+    }
+    
+    .limitation-item {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,355 @@
+/* src/styles/Board.css */
+.board-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.board-container h2 {
+  margin-bottom: 5px;
+}
+
+.board-path {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.board-table th, .board-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.board-table th {
+  background-color: #f8f8f8;
+}
+
+.board-table tbody tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+
+.board-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  gap: 5px;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-write {
+  background-color: #28a745; /* A success green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-write:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-search {
+  background-color: #6c757d; /* Neutral grey */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-search:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-delete:disabled {
+  background-color: #e0e0e0;
+  color: #a0a0a0;
+  border: none; /* Ensure no border on disabled state */
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none; /* No shadow on disabled state */
+}
+
+.detail-header { border-bottom: 2px solid #5a5a9d; padding-bottom: 10px; margin-bottom: 20px; }
+
+.post-info { font-size: 0.9rem; color: #666; display: flex; gap: 20px; }
+
+.detail-content { min-height: 200px; padding: 20px 0; line-height: 1.6; }
+
+.answer-section { background: #f4f4f9; padding: 20px; border-radius: 8px; margin-top: 30px; border-left: 5px solid #5a5a9d; }
+
+.answer-badge { font-weight: bold; color: #5a5a9d; margin-bottom: 10px; }
+
+.write-form textarea, .edit-textarea { width: 100%; min-height: 300px; padding: 15px; margin: 10px 0; border: 1px solid #ddd; resize: none; }
+
+.btn-submit, .btn-register {
+  background-color: #5a5a9d; /* A shade of blue/purple */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px; /* Rounded corners */
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:hover, .btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.write-buttons { display: flex; justify-content: flex-end; gap: 10px; }
+
+/* ======== BoardDetail.jsx ======== */
+.detail-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px; /* Increased padding */
+  border: none; /* Removed border */
+  border-radius: 8px; /* More rounded corners */
+  cursor: pointer;
+  font-size: 15px; /* Slightly larger font */
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.btn:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.btn-list {
+  background-color: #6c757d; /* A neutral, professional grey */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-list:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-edit {
+  background-color: #007bff; /* A vibrant blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-delete {
+  background-color: #dc3545; /* A standard red for delete actions */
+  color: white;
+}
+
+.btn-cancel {
+  background-color: #6c757d; /* Neutral grey, similar to btn-list */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-complete-edit {
+  background-color: #0056b3; /* A slightly darker blue than btn-edit */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-complete-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cancel {
+  background-color: #6c757d; /* Neutral grey, similar to btn-list */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-complete-edit {
+  background-color: #0056b3; /* A slightly darker blue than btn-edit */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-complete-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 관리자 답변 작성 컨테이너 */
+.admin-reply-box {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #5a5a9d;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(90, 90, 157, 0.1);
+}
+
+.admin-reply-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.admin-reply-title {
+    font-weight: 700;
+    color: #5a5a9d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stance-select {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.admin-reply-textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fcfcfd;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    transition: border 0.3s;
+}
+
+.admin-reply-textarea:focus {
+    border-color: #5a5a9d;
+    outline: none;
+}
+
+.admin-reply-footer {
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* 등록된 답변 스타일 개선 */
+.answer-item {
+    background: #f9f9ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 5px solid #5a5a9d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}

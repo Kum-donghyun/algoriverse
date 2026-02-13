@@ -1,0 +1,111 @@
+/* 로그인 모달 오버레이 */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 로그인 모달 내용 */
+.login-modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px; /* 적당한 너비 제한 */
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 닫기 버튼 */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input-group {
+  margin-bottom: 10px;
+}
+
+.login-input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* 이미지의 초록색 테두리 스타일 */
+.login-form .login-id-input {
+  border: 1px solid #ccc;
+  border-bottom: 2px solid green; /* 초록색 강조 */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.login-form .login-password-group {
+  margin-top: 20px;
+  border-bottom: 1px solid #e0e0e0; /* 비밀번호 아래 구분선 */
+  padding-bottom: 15px;
+  /* 옵션 섹션이 사라지면서, 아래 로그인 버튼과의 간격 조정이 필요할 수 있습니다. */
+  margin-bottom: 25px; /* 하단 링크까지의 간격을 확보 */
+}
+
+/* 로그인 버튼 (크고 회색으로) */
+.login-submit-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  background: #a9a9a9; /* 회색 배경 */
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-submit-btn:hover {
+  background: #999999;
+}
+
+/* 하단 링크 */
+.login-footer-links {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-footer-links a {
+  color: #555;
+  text-decoration: none;
+  padding: 0 5px;
+}
+
+.login-footer-links a:hover {
+  text-decoration: underline;
+}

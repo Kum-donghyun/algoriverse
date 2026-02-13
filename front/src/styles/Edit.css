@@ -1,0 +1,92 @@
+/* src/styles/Edit.css */
+
+.edit-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.edit-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.edit-container p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.password-confirm-form, .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.password-confirm-form input[type="password"],
+.edit-form input[type="password"],
+.edit-form input[type="text"],
+.edit-form input[type="email"] {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.edit-form label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.password-confirm-form button,
+.edit-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.password-confirm-form button:hover,
+.edit-form button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* Styling for the read-only ID field */
+.read-only-field {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #888; /* Slightly darker grey text */
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-top: 5px; /* Adjust spacing */
+    margin-bottom: 15px; /* Adjust spacing */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    cursor: default; /* Indicate not clickable */
+}
+
+.edit-input-group {
+    margin-bottom: 15px; /* Space between input groups */
+}

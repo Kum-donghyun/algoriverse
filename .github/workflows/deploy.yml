@@ -1,0 +1,137 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # 1. 코드 체크아웃
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    # 2. Node.js 설정 (Backend & Frontend)
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: |
+          backend/package-lock.json
+          front/package-lock.json
+    
+    # 3. Python 설정 (AI 모델용)
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    # 4. Backend 의존성 설치
+    - name: Install Backend Dependencies
+      working-directory: ./backend
+      run: npm ci
+    
+    # 5. Frontend 의존성 설치
+    - name: Install Frontend Dependencies
+      working-directory: ./front
+      run: npm ci
+    
+    # 6. Python 의존성 설치
+    - name: Install Python Dependencies
+      working-directory: ./backend/bias_model
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    # 7. Frontend 빌드
+    - name: Build Frontend
+      working-directory: ./front
+      run: npm run build
+    
+    # 8. 빌드 아티팩트 압축
+    - name: Create deployment archive
+      run: |
+        tar -czf deploy.tar.gz \
+          backend/ \
+          front/dist/ \
+          --exclude='backend/node_modules' \
+          --exclude='backend/.env' \
+          --exclude='backend/__pycache__' \
+          --exclude='backend/bias_model/__pycache__'
+    
+    # 9. 네이버 클라우드 서버에 배포
+    - name: Deploy to Naver Cloud
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.NCP_WAS_SERVER }}
+        username: ${{ secrets.NCP_USERNAME }}
+        key: ${{ secrets.NCP_SSH_KEY }}
+        port: ${{ secrets.NCP_SSH_PORT }}
+        source: "deploy.tar.gz"
+        target: "/tmp/"
+    
+    # 10. 서버에서 배포 스크립트 실행
+    - name: Execute deployment script
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.NCP_WAS_SERVER }}
+        username: ${{ secrets.NCP_USERNAME }}
+        key: ${{ secrets.NCP_SSH_KEY }}
+        port: ${{ secrets.NCP_SSH_PORT }}
+        script: |
+          # 배포 디렉토리로 이동
+          cd /home/${{ secrets.NCP_USERNAME }}/algoriverse
+          
+          # 압축 해제
+          tar -xzf /tmp/deploy.tar.gz
+          
+          # Backend 의존성 설치 (production only)
+          cd backend
+          npm ci --production
+          
+          # 환경변수 파일 생성 (Secrets에서 가져오기)
+          echo "DB_NAME=${{ secrets.DB_NAME }}" > .env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+          echo "PORT=${{ secrets.PORT }}" >> .env
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
+          echo "NAVER_CLIENT_ID=${{ secrets.NAVER_CLIENT_ID }}" >> .env
+          echo "NAVER_CLIENT_SECRET=${{ secrets.NAVER_CLIENT_SECRET }}" >> .env
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+          echo "SITEAI_API_KEY=${{ secrets.SITEAI_API_KEY }}" >> .env
+          echo "ENABLE_GPT_BIAS=1" >> .env
+          echo "ENABLE_AI_ANALYSIS=1" >> .env
+          echo "OPENAI_MODEL=gpt-4o-mini" >> .env
+          
+          # PM2로 애플리케이션 재시작
+          pm2 reload ecosystem.config.js --env production
+          pm2 save
+          
+          # Nginx 설정 업데이트 및 재시작
+          sudo cp /home/${{ secrets.NCP_USERNAME }}/algoriverse/nginx.conf /etc/nginx/sites-available/algoriverse
+          sudo nginx -t && sudo systemctl reload nginx
+          
+          # 임시 파일 정리
+          rm -f /tmp/deploy.tar.gz
+          
+          echo "Deployment completed successfully!"
+    
+    # 11. 배포 상태 확인
+    - name: Health Check
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      run: |
+        sleep 10
+        curl -f http://${{ secrets.NCP_WAS_SERVER }}:${{ secrets.PORT }}/health || exit 1
