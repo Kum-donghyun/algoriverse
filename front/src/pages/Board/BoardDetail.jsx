@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../../styles/board.css';
+import '../../styles/Board.css';
 
 const BoardDetail = () => {
   const { id } = useParams();
