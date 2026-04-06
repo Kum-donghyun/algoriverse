@@ -1,0 +1,4530 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title id="browserTitleArea">오피니언 홈 :: 네이버 뉴스</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+        <link rel="shortcut icon" type="image/x-icon" href="https://mimgnews.pstatic.net/image/news/m/2023/favicon/favicon.ico" />
+        
+
+
+<script>
+	function isMobileDevice() {
+		return /^.*(iPhone|iPod|iPad|Android).*/.test(navigator.userAgent);
+	}
+</script>
+<script>
+	(function () {
+		try {
+			if (isMobileDevice() && isAbleApplyPrefersColorScheme()) {
+				
+				document.querySelector("html").classList.add("DARK_THEME");
+			}
+		} catch(e) {}
+
+		function isAbleApplyPrefersColorScheme() {
+			
+			if (window.matchMedia("(prefers-color-scheme)").matches === false) {
+				return false;
+			}
+
+			var userAgent = navigator.userAgent;
+
+			if (userAgent.indexOf("NAVER") > -1) {
+				
+				if (/.*NAVER\([a-zA-Z]*;\s[a-zA-Z]*;\s([0-9]*);/.test(userAgent)) {
+					return Number(RegExp.$1) >= 1000;
+				}
+			} else {
+				
+				return document.cookie.indexOf("NSCS=1") > -1;
+			}
+
+			return false;
+		}
+	})();
+</script>
+
+        <script>
+            var g_ssc = 'news.v3_opi' || null;
+        </script>
+        <meta property="og:title" content="오피니언 홈 : 네이버 뉴스"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://m.news.naver.com/opinion/editorial"/>
+<meta property="og:image" content="https://mimgnews.pstatic.net/image/news/ogtag/navernews_800x420_20221201.png"/>
+<meta property="og:description" content="언론사별 연재, 사설, 칼럼, 만평을 제공합니다."/>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="오피니언 홈">
+<meta name="twitter:site" content="네이버 뉴스">
+<meta name="twitter:creator" content="네이버 뉴스">
+<meta name="twitter:image" content="https://mimgnews.pstatic.net/image/news/ogtag/navernews_800x420_20221201.png">
+<meta name="twitter:description" content="언론사별 연재, 사설, 칼럼, 만평을 제공합니다.">
+
+        
+
+
+
+
+
+
+	
+	
+		
+		<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/static.news/mnews/resources/20260227_010345/css/generated/other.css" />
+	
+
+
+
+
+<script>
+
+document.documentElement.setAttribute('data-useragent', navigator.userAgent);
+
+
+function showNoImage(elImg, type) {
+    switch (type) {
+        
+        case "remove":
+            try {
+                elImg.parentNode.removeChild(elImg);
+            } catch(e) {}
+            break;
+
+        
+        case "removeParent":
+            try {
+                elImg.parentNode.outerHTML = '';
+            } catch(e) {}
+            break;
+
+        
+        case "alt":
+            elImg.outerHTML = ('<span class="noimage_text {imgClassName}">' + (elImg.alt || "") + '</span>')
+                
+                .replace('{imgClassName}', elImg.className);
+            break;
+
+		
+		case "class" :
+			var outerHTMLSource = Number(elImg.getAttribute("height")) > 0?
+				
+				'<span class="noimage_wrap {imgClassName}" style="height:' + elImg.getAttribute("height") + 'px;"><span class="noimage"></span></span>':
+				'<span class="noimage_wrap {imgClassName}"><span class="noimage"></span></span>';
+			elImg.outerHTML = outerHTMLSource.replace('{imgClassName}', elImg.className);
+			break;
+
+        case "pressname" :
+            var pressname = elImg.getAttribute("data-pressname");
+            elImg.outerHTML = '<span class="cnb_broadcast_noimg"><span class="noimg_text">' + pressname + '</span></span>';
+            break;
+
+        case "noHeight":
+            
+            elImg.outerHTML = '<span class="noimage_wrap"><span class="noimage"></span></span>';
+            break;
+
+        case "displayFallback":
+            elImg.style.display = "none";
+            var elWrapper = elImg.closest("._NOIMAGE_WRAPPER");
+            if (elWrapper) {
+                var elFallback = elWrapper.querySelector("._NOIMAGE_FALLBACK");
+                if (elFallback) {
+                    elFallback.style.display = "block";
+                }
+            }
+            break;
+
+        
+        default:
+            
+            elImg.outerHTML = Number(elImg.getAttribute("height")) > 0?
+                
+                '<span class="noimage_wrap" style="height:' + elImg.getAttribute("height") + 'px;"><span class="noimage"></span></span>':
+                '<span class="noimage_wrap"><span class="noimage"></span></span>';
+    }
+}
+
+
+function doAfterLoadEnd(callback, callbackOnPersisted) {
+    var eventName = "onpageshow" in window ? "pageshow" : "load";
+
+    callback = callback || function(){};
+    callbackOnPersisted = callbackOnPersisted || function(){};
+
+    window.addEventListener(eventName, function(e) {
+        try{
+            if(Boolean(e.persisted)){ 
+                callbackOnPersisted();
+                return;
+            }
+        }catch(e){}
+
+        callback();
+    });
+}
+</script>
+
+
+
+        
+        
+    </head>
+    <body class="as_mp_layout body_opinion_sub">
+        <div class="u_skip"><a href="#ct">본문 바로가기</a></div>
+        
+<!-- Menu 구분  -->
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+        
+    
+
+    
+    
+    
+
+    
+
+    
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+    
+
+
+
+<section class="news_header">
+    <header class="nh_header" role="banner">
+        <div class="Ngnb"> 
+            <div class="Ngnb_inner">
+                <div class="Ngnb_both">
+                    <div class="Ngnb_left">
+                        <span class="Ngnb_logo"><a href="https://www.naver.com" onclick="nclk(event,'gnb.naver','','');" class="Nlogo_link"><span class="Nicon_logo">NAVER</span></a></span>
+                        <div class="Ngnb_service">
+                            <h1 class="Nservice_item"><a href="https://news.naver.com" onclick="nclk(event,'gnb.news','','');"><span class="Nicon_service">뉴스</span></a></h1>
+                            <span class="Nservice_subitem">
+                                <a href="https://entertain.naver.com/home" onclick="nclk(event,'gnb.enter','','');">
+                                    <span class="Nicon_family Nicon_entertain">엔터</span>
+                                </a>
+                            </span>
+                            <span class="Nservice_subitem">
+                                <a href="https://sports.news.naver.com/index" onclick="nclk(event,'gnb.sports','','');">
+                                    <span class="Nicon_family Nicon_sports">스포츠</span>
+                                </a>
+                            </span>
+                            <span class="Nservice_subitem">
+                                <a href="https://weather.naver.com/" onclick="nclk(event,'gnb.weather','','');">
+                                    <span class="Nicon_family Nicon_weather">날씨</span>
+                                </a>
+                            </span>
+                            <span class="Nservice_subitem">
+                                <a href="https://contents.premium.naver.com/" onclick="nclk(event,'gnb.premium','','');">
+                                    <span class="Nicon_family Nicon_premium">프리미엄</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                    
+<div class="Ngnb_right">
+    <div class="Ngnb_group">
+        <div id="gnb" class="gnb_dark_type2"></div>
+    </div>
+    <div class="Ngnb_my_setting">
+        <a href="https://media.naver.com/my/home" class="Ngnb_my_setting_link" onclick="nclk(event,'gnb.my','','');">
+            <span class="blind">MY</span>
+        </a>
+    </div>
+    
+    <div class="Ngnb_search is_hidden _search_content"></div>
+    <div class="Ngnb_tool">
+        <a href="javascript:;"
+           class="Ntool_button _search_content_toggle_btn"
+           onclick="nclk(event,'gnb.sch','','');"><span class="Nicon_search">검색</span></a>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="Nlnb _float_lnb">  
+            <div class="Nlnb_inner">
+                <div class="Nlnb_both">
+                    <div class="Nlnb_left _lnb_scroll">
+                        <div class="Nlnb_menu Ntype_scroll">
+                            <div class="Nlnb_menu_inner _scroll">
+                                <ul class="Nlnb_menu_list" role="menu">
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/?viewType=pc" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.pcmedia','','');"><span class="Nitem_link_menu">언론사별</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/section/100" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.pol','','');"><span class="Nitem_link_menu">정치</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/section/101" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.eco','','');"><span class="Nitem_link_menu">경제</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/section/102" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.soc','','');"><span class="Nitem_link_menu">사회</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/section/103" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.lif','','');"><span class="Nitem_link_menu">생활/문화</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/section/105" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.sci','','');"><span class="Nitem_link_menu">IT/과학</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/section/104" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.wor','','');"><span class="Nitem_link_menu">세계</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                            
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item _isNew"><a href="https://news.naver.com/main/ranking/popularDay.naver" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.rank','','');"><span class="Nitem_link_menu">랭킹</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                            
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item _isNew"><a href="https://news.naver.com/newspaper/home?viewType=pc" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.paper','','');"><span class="Nitem_link_menu">신문보기</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                            
+                                        
+                                        <li class="Nlist_item is_active"><a href="https://news.naver.com/opinion/home" class="Nitem_link" role="menuitem" aria-selected="true" onclick="nclk(event,'lnb.opi','','');"><span class="Nitem_link_menu">오피니언</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/main/tv/index.naver?mid=tvh" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.tv','','');"><span class="Nitem_link_menu">TV</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://news.naver.com/factcheck/main" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.fact','','');"><span class="Nitem_link_menu">팩트체크</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item"><a href="https://media.naver.com/algorithm" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.algo','','');"><span class="Nitem_link_menu">알고리즘 안내</span></a></li>
+                                    
+                                        
+                                        
+                                        
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        
+                                        
+                                        
+                                            
+                                        
+                                        
+                                        
+                                        <li class="Nlist_item _isNew"><a href="https://news.naver.com/ombudsman/errorArticleList" class="Nitem_link" role="menuitem" aria-selected="false" onclick="nclk(event,'lnb.correct','','');"><span class="Nitem_link_menu">정정보도 모음</span></a></li>
+                                    
+                                </ul>
+                                <div class="Nlnb_menu_my_area">
+                                    <a href="https://media.naver.com/my/home" class="Nlnb_menu_my_link" onclick="nclk(event,'gnb.my','','');">
+                                        <span class="Nlnb_menu_my_text">MY</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</section>
+<hr />
+
+        <div class="category_nav">
+	<div class="category_nav_inner">
+		<a href="/opinion/series" class="category_nav_link"  onclick="nclk(event,'hom.series','','');">연재</a>
+		<a href="/opinion/column" class="category_nav_link"  onclick="nclk(event,'hom.column','','');">칼럼</a>
+		<a href="/opinion/editorial" class="category_nav_link" aria-selected="true" onclick="nclk(event,'hom.editorial','','');">사설</a>
+		<a href="/opinion/cartoon" class="category_nav_link"  onclick="nclk(event,'hom.cartoon','','');">만평</a>
+	</div>
+</div>
+
+        <div id="ct" role="main" class="main_wrap as_opinion as_opinion_editorial">
+            <div class="main_container">
+                
+
+
+
+
+
+<section class="main_content">
+	<h2 class="blind">콘텐츠</h2>
+	<div class="opinion_section">
+		<header class="opinion_header">
+			<h2 class="title">
+				사설
+			</h2>
+			
+			
+			
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+        
+    
+    
+    
+    
+    
+
+
+
+
+    
+    
+    
+        
+            
+            
+        
+        <div class="select_wrap _opinion_press_wrapper">
+        <button type="button" class="select_btn _opinion_press_toggle"
+                onclick="nclk(event,'edt.jou','','');">언론사 전체</button>
+    
+
+
+    <div class="list_panel_modal _press_layer">
+        <div class="lpm_dimmed _dimmed_layer"></div>
+        <div class="lpm_content _content_layer">
+            <button type="button" class="lpm_touch_btn _slide_handler" aria-hidden="true"></button>
+            <strong class="lpm_head_title">언론사 선택하기</strong>
+            <div class="lpm_children _scroll">
+                <div class="press_sorting_list">
+                    <div class="psl_head">
+                        <div class="psl_menu">
+                            <div class="psl_count_info">전체 84</div>
+                            
+                                <label class="psl_sort_label">
+                                    <input type="checkbox" class="psl_sort_input _press_sorting_button" hidden="">
+                                    <div class="psl_sort_label_text">가나다순</div>
+                                    <div type="checkbox" class="psl_sort_img"></div>
+                                </label>
+                            
+                        </div>
+                    </div>
+                    <div class="psl_body">
+                        <div class="psl_press_list">
+                            <div class="psl_press_item_wrap _press_list_wrap">
+                            </div>
+
+                            <div class="psl_pg mobile_hidden">
+                                <button type="button" class="btn_prev _prev_btn">
+                                    <span class="blind">이전 언론사 목록 보기</span>
+                                </button>
+                                <div class="pg_status">
+                                    <span class="total"><span class="_press_layer_pg_total"></span><span class="blind">번째 페이지 중</span></span>
+                                    <span class="current"><span class="_press_layer_pg_current"></span> <span class="blind">번째 페이지</span></span>
+                                    <span class="slash"></span>
+                                </div>
+                                <button type="button" class="btn_next _next_btn">
+                                    <span class="blind">다음 언론사 목록 보기</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="lpm_close_btn _opinion_press_toggle" aria-label="닫기"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script id="defaultTotalPressTemplate" type="text/x-handlebars-template">
+    
+        
+            <div class="psl_press_item _press_item">
+                <a href="javascript:;" role="tab" aria-selected="false" class="psl_press_link _press_link"
+                   data-office-id="all" data-office-name="언론사 전체"
+                   >
+                    <div class="psl_press_thumb">
+                        <img src="https://ssl.pstatic.net/static.news/image/news/m/2022/11/04/img_channel_all.png"
+                             alt="전체" width="22" height="22" onerror="showNoImage(this)">
+                    </div>
+                    <strong class="psl_press_name">전체</strong>
+                </a>
+            </div>
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="666" data-office-name="경기일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/666/2025/03/07/logo_666_100_20250307145718.png"
+                         height="22" width="22" alt="경기일보" title="경기일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    경기일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="082" data-office-name="부산일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/082/2026/01/26/logo_082_100_20260126154325.png"
+                         height="22" width="22" alt="부산일보" title="부산일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    부산일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="025" data-office-name="중앙일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/025/2025/03/07/logo_025_100_20250307145712.png"
+                         height="22" width="22" alt="중앙일보" title="중앙일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    중앙일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="021" data-office-name="문화일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/021/2025/03/07/logo_021_100_20250307145703.png"
+                         height="22" width="22" alt="문화일보" title="문화일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    문화일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="421" data-office-name="뉴스1" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/421/2025/03/07/logo_421_100_20250307145710.png"
+                         height="22" width="22" alt="뉴스1" title="뉴스1"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    뉴스1
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="052" data-office-name="YTN" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/052/2025/03/07/logo_052_100_20250307145633.png"
+                         height="22" width="22" alt="YTN" title="YTN"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    YTN
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="654" data-office-name="강원도민일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/654/2025/04/03/logo_654_100_20250403123318.png"
+                         height="22" width="22" alt="강원도민일보" title="강원도민일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    강원도민일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="655" data-office-name="CJB청주방송" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/655/2025/03/07/logo_655_100_20250307145649.png"
+                         height="22" width="22" alt="CJB청주방송" title="CJB청주방송"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    CJB청주방송
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="293" data-office-name="블로터" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/293/2025/03/07/logo_293_100_20250307145632.png"
+                         height="22" width="22" alt="블로터" title="블로터"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    블로터
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="586" data-office-name="시사저널" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/586/2025/03/07/logo_586_100_20250307145713.png"
+                         height="22" width="22" alt="시사저널" title="시사저널"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    시사저널
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="079" data-office-name="노컷뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/079/2025/04/24/logo_079_100_20250424111642.png"
+                         height="22" width="22" alt="노컷뉴스" title="노컷뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    노컷뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="665" data-office-name="더스쿠프" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/665/2025/03/07/logo_665_100_20250307145716.png"
+                         height="22" width="22" alt="더스쿠프" title="더스쿠프"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    더스쿠프
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="005" data-office-name="국민일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/005/2025/03/07/logo_005_100_20250307145616.png"
+                         height="22" width="22" alt="국민일보" title="국민일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    국민일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="656" data-office-name="대전일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/656/2025/03/07/logo_656_100_20250307145652.png"
+                         height="22" width="22" alt="대전일보" title="대전일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    대전일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="002" data-office-name="프레시안" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/002/2025/03/07/logo_002_100_20250307145612.png"
+                         height="22" width="22" alt="프레시안" title="프레시안"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    프레시안
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="422" data-office-name="연합뉴스TV" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/422/2025/03/07/logo_422_100_20250307145714.png"
+                         height="22" width="22" alt="연합뉴스TV" title="연합뉴스TV"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    연합뉴스TV
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="087" data-office-name="강원일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/087/2025/03/07/logo_087_100_20250307145607.png"
+                         height="22" width="22" alt="강원일보" title="강원일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    강원일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="215" data-office-name="한국경제TV" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/215/2025/03/07/logo_215_100_20250307145651.png"
+                         height="22" width="22" alt="한국경제TV" title="한국경제TV"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한국경제TV
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="138" data-office-name="디지털데일리" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/138/2026/01/08/logo_138_100_20260108155616.png"
+                         height="22" width="22" alt="디지털데일리" title="디지털데일리"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    디지털데일리
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="031" data-office-name="아이뉴스24" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/031/2025/03/07/logo_031_100_20250307145552.png"
+                         height="22" width="22" alt="아이뉴스24" title="아이뉴스24"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    아이뉴스24
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="119" data-office-name="데일리안" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/119/2025/03/07/logo_119_100_20250307145603.png"
+                         height="22" width="22" alt="데일리안" title="데일리안"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    데일리안
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="607" data-office-name="뉴스타파" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/607/2025/03/07/logo_607_100_20250307145627.png"
+                         height="22" width="22" alt="뉴스타파" title="뉴스타파"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    뉴스타파
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="050" data-office-name="한경비즈니스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/050/2025/03/07/logo_050_100_20250307145629.png"
+                         height="22" width="22" alt="한경비즈니스" title="한경비즈니스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한경비즈니스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="277" data-office-name="아시아경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/277/2025/03/12/logo_277_100_20250312105338.png"
+                         height="22" width="22" alt="아시아경제" title="아시아경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    아시아경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="296" data-office-name="코메디닷컴" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/296/2025/03/07/logo_296_100_20250307145636.png"
+                         height="22" width="22" alt="코메디닷컴" title="코메디닷컴"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    코메디닷컴
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="657" data-office-name="대구MBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/657/2025/03/07/logo_657_100_20250307145654.png"
+                         height="22" width="22" alt="대구MBC" title="대구MBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    대구MBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="661" data-office-name="JIBS" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/661/2025/03/07/logo_661_100_20250307145705.png"
+                         height="22" width="22" alt="JIBS" title="JIBS"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    JIBS
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="214" data-office-name="MBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/214/2025/03/07/logo_214_100_20250307145647.png"
+                         height="22" width="22" alt="MBC" title="MBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    MBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="659" data-office-name="전주MBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/659/2025/03/07/logo_659_100_20250307145659.png"
+                         height="22" width="22" alt="전주MBC" title="전주MBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    전주MBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="016" data-office-name="헤럴드경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/016/2025/03/07/logo_016_100_20250307145646.png"
+                         height="22" width="22" alt="헤럴드경제" title="헤럴드경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    헤럴드경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="007" data-office-name="일다" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/007/2025/03/07/logo_007_100_20250307145619.png"
+                         height="22" width="22" alt="일다" title="일다"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    일다
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="009" data-office-name="매일경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/009/2025/03/07/logo_009_100_20250307145623.png"
+                         height="22" width="22" alt="매일경제" title="매일경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    매일경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="310" data-office-name="여성신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/310/2025/03/07/logo_310_100_20250307145559.png"
+                         height="22" width="22" alt="여성신문" title="여성신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    여성신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="044" data-office-name="코리아헤럴드" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/044/2025/03/07/logo_044_100_20250307145608.png"
+                         height="22" width="22" alt="코리아헤럴드" title="코리아헤럴드"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    코리아헤럴드
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="023" data-office-name="조선일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/023/2025/03/07/logo_023_100_20250307145706.png"
+                         height="22" width="22" alt="조선일보" title="조선일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    조선일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="088" data-office-name="매일신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/088/2025/03/07/logo_088_100_20250307145609.png"
+                         height="22" width="22" alt="매일신문" title="매일신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    매일신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="262" data-office-name="신동아" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/262/2025/03/07/logo_262_100_20250307145701.png"
+                         height="22" width="22" alt="신동아" title="신동아"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    신동아
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="057" data-office-name="MBN" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/057/2025/06/27/logo_057_100_20250627104110.png"
+                         height="22" width="22" alt="MBN" title="MBN"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    MBN
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="092" data-office-name="지디넷코리아" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/092/2025/03/07/logo_092_100_20250307145628.png"
+                         height="22" width="22" alt="지디넷코리아" title="지디넷코리아"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    지디넷코리아
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="658" data-office-name="국제신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/658/2025/03/11/logo_658_100_20250311140757.png"
+                         height="22" width="22" alt="국제신문" title="국제신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    국제신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="437" data-office-name="JTBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/437/2026/01/08/logo_437_100_20260108163429.png"
+                         height="22" width="22" alt="JTBC" title="JTBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    JTBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="047" data-office-name="오마이뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/047/2025/04/22/logo_047_100_20250422155828.png"
+                         height="22" width="22" alt="오마이뉴스" title="오마이뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    오마이뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="094" data-office-name="월간 산" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/094/2025/03/07/logo_094_100_20250307145631.png"
+                         height="22" width="22" alt="월간 산" title="월간 산"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    월간 산
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="015" data-office-name="한국경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/015/2025/03/07/logo_015_100_20250307145644.png"
+                         height="22" width="22" alt="한국경제" title="한국경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한국경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="028" data-office-name="한겨레" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/028/2025/03/07/logo_028_100_20250307145718.png"
+                         height="22" width="22" alt="한겨레" title="한겨레"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한겨레
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="469" data-office-name="한국일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/469/2025/03/07/logo_469_100_20250307145719.png"
+                         height="22" width="22" alt="한국일보" title="한국일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한국일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="145" data-office-name="레이디경향" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/145/2025/03/07/logo_145_100_20250307145710.png"
+                         height="22" width="22" alt="레이디경향" title="레이디경향"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    레이디경향
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="003" data-office-name="뉴시스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/003/2025/03/07/logo_003_100_20250307145615.png"
+                         height="22" width="22" alt="뉴시스" title="뉴시스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    뉴시스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="014" data-office-name="파이낸셜뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/014/2025/03/07/logo_014_100_20250307145643.png"
+                         height="22" width="22" alt="파이낸셜뉴스" title="파이낸셜뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    파이낸셜뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="030" data-office-name="전자신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/030/2025/03/07/logo_030_100_20250307145551.png"
+                         height="22" width="22" alt="전자신문" title="전자신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    전자신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="127" data-office-name="기자협회보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/127/2025/03/17/logo_127_100_20250317104420.png"
+                         height="22" width="22" alt="기자협회보" title="기자협회보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    기자협회보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="053" data-office-name="주간조선" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/053/2025/03/07/logo_053_100_20250307145635.png"
+                         height="22" width="22" alt="주간조선" title="주간조선"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    주간조선
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="081" data-office-name="서울신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/081/2025/03/07/logo_081_100_20250307145604.png"
+                         height="22" width="22" alt="서울신문" title="서울신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    서울신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="036" data-office-name="한겨레21" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/036/2025/03/07/logo_036_100_20250307145600.png"
+                         height="22" width="22" alt="한겨레21" title="한겨레21"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한겨레21
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="056" data-office-name="KBS" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/056/2025/03/07/logo_056_100_20250307145641.png"
+                         height="22" width="22" alt="KBS" title="KBS"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    KBS
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="037" data-office-name="주간동아" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/037/2025/03/07/logo_037_100_20250307145601.png"
+                         height="22" width="22" alt="주간동아" title="주간동아"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    주간동아
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="417" data-office-name="동행미디어 시대" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/417/2026/02/23/logo_417_100_20260223104514.png"
+                         height="22" width="22" alt="동행미디어 시대" title="동행미디어 시대"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    동행미디어 시대
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="018" data-office-name="이데일리" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/018/2025/03/07/logo_018_100_20250307145653.png"
+                         height="22" width="22" alt="이데일리" title="이데일리"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    이데일리
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="008" data-office-name="머니투데이" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/008/2025/03/07/logo_008_100_20250307145621.png"
+                         height="22" width="22" alt="머니투데이" title="머니투데이"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    머니투데이
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="449" data-office-name="채널A" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/449/2025/03/07/logo_449_100_20250307145624.png"
+                         height="22" width="22" alt="채널A" title="채널A"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    채널A
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="640" data-office-name="코리아중앙데일리" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/640/2025/03/07/logo_640_100_20250307145614.png"
+                         height="22" width="22" alt="코리아중앙데일리" title="코리아중앙데일리"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    코리아중앙데일리
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="033" data-office-name="주간경향" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/033/2025/03/07/logo_033_100_20250307145555.png"
+                         height="22" width="22" alt="주간경향" title="주간경향"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    주간경향
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="022" data-office-name="세계일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/022/2025/03/20/logo_022_100_20250320162643.png"
+                         height="22" width="22" alt="세계일보" title="세계일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    세계일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="366" data-office-name="조선비즈" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/366/2025/03/07/logo_366_100_20250307145615.png"
+                         height="22" width="22" alt="조선비즈" title="조선비즈"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    조선비즈
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="001" data-office-name="연합뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/001/2025/03/07/logo_001_100_20250307145612.png"
+                         height="22" width="22" alt="연합뉴스" title="연합뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    연합뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="055" data-office-name="SBS" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/055/2025/03/26/logo_055_100_20250326142328.png"
+                         height="22" width="22" alt="SBS" title="SBS"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    SBS
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="346" data-office-name="헬스조선" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/346/2025/03/27/logo_346_100_20250327110759.png"
+                         height="22" width="22" alt="헬스조선" title="헬스조선"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    헬스조선
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="648" data-office-name="비즈워치" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/648/2025/03/07/logo_648_100_20250307145626.png"
+                         height="22" width="22" alt="비즈워치" title="비즈워치"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    비즈워치
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="029" data-office-name="디지털타임스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/029/2025/04/14/logo_029_100_20250414154305.png"
+                         height="22" width="22" alt="디지털타임스" title="디지털타임스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    디지털타임스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="448" data-office-name="TV조선" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/448/2025/03/07/logo_448_100_20250307145622.png"
+                         height="22" width="22" alt="TV조선" title="TV조선"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    TV조선
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="629" data-office-name="더팩트" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/629/2025/03/07/logo_629_100_20250307145723.png"
+                         height="22" width="22" alt="더팩트" title="더팩트"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    더팩트
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="374" data-office-name="SBS Biz" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/374/2025/03/07/logo_374_100_20250307145639.png"
+                         height="22" width="22" alt="SBS Biz" title="SBS Biz"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    SBS Biz
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="020" data-office-name="동아일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/020/2025/03/07/logo_020_100_20250307145700.png"
+                         height="22" width="22" alt="동아일보" title="동아일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    동아일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="584" data-office-name="동아사이언스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/584/2025/03/07/logo_584_100_20250307145707.png"
+                         height="22" width="22" alt="동아사이언스" title="동아사이언스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    동아사이언스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="024" data-office-name="매경이코노미" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/024/2025/03/07/logo_024_100_20250307145709.png"
+                         height="22" width="22" alt="매경이코노미" title="매경이코노미"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    매경이코노미
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="660" data-office-name="kbc광주방송" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/660/2025/03/07/logo_660_100_20250307145705.png"
+                         height="22" width="22" alt="kbc광주방송" title="kbc광주방송"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    kbc광주방송
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="308" data-office-name="시사IN" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/308/2025/03/07/logo_308_100_20250307145722.png"
+                         height="22" width="22" alt="시사IN" title="시사IN"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    시사IN
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="123" data-office-name="조세일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/123/2025/03/07/logo_123_100_20250307145612.png"
+                         height="22" width="22" alt="조세일보" title="조세일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    조세일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="243" data-office-name="이코노미스트" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/243/2025/03/07/logo_243_100_20250307145610.png"
+                         height="22" width="22" alt="이코노미스트" title="이코노미스트"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    이코노미스트
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="032" data-office-name="경향신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/032/2025/03/07/logo_032_100_20250307145554.png"
+                         height="22" width="22" alt="경향신문" title="경향신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    경향신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="011" data-office-name="서울경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/011/2025/03/07/logo_011_100_20250307145637.png"
+                         height="22" width="22" alt="서울경제" title="서울경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    서울경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="662" data-office-name="농민신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/662/2025/03/07/logo_662_100_20250307145708.png"
+                         height="22" width="22" alt="농민신문" title="농민신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    농민신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="006" data-office-name="미디어오늘" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/006/2025/03/07/logo_006_100_20250307145617.png"
+                         height="22" width="22" alt="미디어오늘" title="미디어오늘"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    미디어오늘
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="353" data-office-name="중앙SUNDAY" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/353/2025/03/07/logo_353_100_20250307145556.png"
+                         height="22" width="22" alt="중앙SUNDAY" title="중앙SUNDAY"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    중앙SUNDAY
+                </strong>
+            </a>
+        </div>
+    
+</script>
+
+<script id="koreanTotalPressTemplate" type="text/x-handlebars-template">
+    
+        
+            <div class="psl_press_item _press_item">
+                <a href="javascript:;" role="tab" aria-selected="false" class="psl_press_link _press_link"
+                   data-office-id="all" data-office-name="언론사 전체"
+                   >
+                    <div class="psl_press_thumb">
+                        <img src="https://ssl.pstatic.net/static.news/image/news/m/2022/11/04/img_channel_all.png"
+                             alt="전체" width="22" height="22" onerror="showNoImage(this)">
+                    </div>
+                    <strong class="psl_press_name">전체</strong>
+                </a>
+            </div>
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="654" data-office-name="강원도민일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/654/2025/04/03/logo_654_100_20250403123318.png"
+                         height="22" width="22" alt="강원도민일보" title="강원도민일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    강원도민일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="087" data-office-name="강원일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/087/2025/03/07/logo_087_100_20250307145607.png"
+                         height="22" width="22" alt="강원일보" title="강원일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    강원일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="666" data-office-name="경기일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/666/2025/03/07/logo_666_100_20250307145718.png"
+                         height="22" width="22" alt="경기일보" title="경기일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    경기일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="032" data-office-name="경향신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/032/2025/03/07/logo_032_100_20250307145554.png"
+                         height="22" width="22" alt="경향신문" title="경향신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    경향신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="005" data-office-name="국민일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/005/2025/03/07/logo_005_100_20250307145616.png"
+                         height="22" width="22" alt="국민일보" title="국민일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    국민일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="658" data-office-name="국제신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/658/2025/03/11/logo_658_100_20250311140757.png"
+                         height="22" width="22" alt="국제신문" title="국제신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    국제신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="127" data-office-name="기자협회보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/127/2025/03/17/logo_127_100_20250317104420.png"
+                         height="22" width="22" alt="기자협회보" title="기자협회보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    기자협회보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="079" data-office-name="노컷뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/079/2025/04/24/logo_079_100_20250424111642.png"
+                         height="22" width="22" alt="노컷뉴스" title="노컷뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    노컷뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="662" data-office-name="농민신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/662/2025/03/07/logo_662_100_20250307145708.png"
+                         height="22" width="22" alt="농민신문" title="농민신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    농민신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="421" data-office-name="뉴스1" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/421/2025/03/07/logo_421_100_20250307145710.png"
+                         height="22" width="22" alt="뉴스1" title="뉴스1"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    뉴스1
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="607" data-office-name="뉴스타파" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/607/2025/03/07/logo_607_100_20250307145627.png"
+                         height="22" width="22" alt="뉴스타파" title="뉴스타파"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    뉴스타파
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="003" data-office-name="뉴시스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/003/2025/03/07/logo_003_100_20250307145615.png"
+                         height="22" width="22" alt="뉴시스" title="뉴시스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    뉴시스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="657" data-office-name="대구MBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/657/2025/03/07/logo_657_100_20250307145654.png"
+                         height="22" width="22" alt="대구MBC" title="대구MBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    대구MBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="656" data-office-name="대전일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/656/2025/03/07/logo_656_100_20250307145652.png"
+                         height="22" width="22" alt="대전일보" title="대전일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    대전일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="665" data-office-name="더스쿠프" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/665/2025/03/07/logo_665_100_20250307145716.png"
+                         height="22" width="22" alt="더스쿠프" title="더스쿠프"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    더스쿠프
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="629" data-office-name="더팩트" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/629/2025/03/07/logo_629_100_20250307145723.png"
+                         height="22" width="22" alt="더팩트" title="더팩트"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    더팩트
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="119" data-office-name="데일리안" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/119/2025/03/07/logo_119_100_20250307145603.png"
+                         height="22" width="22" alt="데일리안" title="데일리안"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    데일리안
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="584" data-office-name="동아사이언스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/584/2025/03/07/logo_584_100_20250307145707.png"
+                         height="22" width="22" alt="동아사이언스" title="동아사이언스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    동아사이언스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="020" data-office-name="동아일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/020/2025/03/07/logo_020_100_20250307145700.png"
+                         height="22" width="22" alt="동아일보" title="동아일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    동아일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="417" data-office-name="동행미디어 시대" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/417/2026/02/23/logo_417_100_20260223104514.png"
+                         height="22" width="22" alt="동행미디어 시대" title="동행미디어 시대"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    동행미디어 시대
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="138" data-office-name="디지털데일리" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/138/2026/01/08/logo_138_100_20260108155616.png"
+                         height="22" width="22" alt="디지털데일리" title="디지털데일리"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    디지털데일리
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="029" data-office-name="디지털타임스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/029/2025/04/14/logo_029_100_20250414154305.png"
+                         height="22" width="22" alt="디지털타임스" title="디지털타임스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    디지털타임스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="145" data-office-name="레이디경향" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/145/2025/03/07/logo_145_100_20250307145710.png"
+                         height="22" width="22" alt="레이디경향" title="레이디경향"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    레이디경향
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="024" data-office-name="매경이코노미" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/024/2025/03/07/logo_024_100_20250307145709.png"
+                         height="22" width="22" alt="매경이코노미" title="매경이코노미"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    매경이코노미
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="009" data-office-name="매일경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/009/2025/03/07/logo_009_100_20250307145623.png"
+                         height="22" width="22" alt="매일경제" title="매일경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    매일경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="088" data-office-name="매일신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/088/2025/03/07/logo_088_100_20250307145609.png"
+                         height="22" width="22" alt="매일신문" title="매일신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    매일신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="008" data-office-name="머니투데이" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/008/2025/03/07/logo_008_100_20250307145621.png"
+                         height="22" width="22" alt="머니투데이" title="머니투데이"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    머니투데이
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="021" data-office-name="문화일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/021/2025/03/07/logo_021_100_20250307145703.png"
+                         height="22" width="22" alt="문화일보" title="문화일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    문화일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="006" data-office-name="미디어오늘" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/006/2025/03/07/logo_006_100_20250307145617.png"
+                         height="22" width="22" alt="미디어오늘" title="미디어오늘"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    미디어오늘
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="082" data-office-name="부산일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/082/2026/01/26/logo_082_100_20260126154325.png"
+                         height="22" width="22" alt="부산일보" title="부산일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    부산일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="293" data-office-name="블로터" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/293/2025/03/07/logo_293_100_20250307145632.png"
+                         height="22" width="22" alt="블로터" title="블로터"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    블로터
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="648" data-office-name="비즈워치" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/648/2025/03/07/logo_648_100_20250307145626.png"
+                         height="22" width="22" alt="비즈워치" title="비즈워치"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    비즈워치
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="011" data-office-name="서울경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/011/2025/03/07/logo_011_100_20250307145637.png"
+                         height="22" width="22" alt="서울경제" title="서울경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    서울경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="081" data-office-name="서울신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/081/2025/03/07/logo_081_100_20250307145604.png"
+                         height="22" width="22" alt="서울신문" title="서울신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    서울신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="022" data-office-name="세계일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/022/2025/03/20/logo_022_100_20250320162643.png"
+                         height="22" width="22" alt="세계일보" title="세계일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    세계일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="308" data-office-name="시사IN" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/308/2025/03/07/logo_308_100_20250307145722.png"
+                         height="22" width="22" alt="시사IN" title="시사IN"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    시사IN
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="586" data-office-name="시사저널" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/586/2025/03/07/logo_586_100_20250307145713.png"
+                         height="22" width="22" alt="시사저널" title="시사저널"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    시사저널
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="262" data-office-name="신동아" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/262/2025/03/07/logo_262_100_20250307145701.png"
+                         height="22" width="22" alt="신동아" title="신동아"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    신동아
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="277" data-office-name="아시아경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/277/2025/03/12/logo_277_100_20250312105338.png"
+                         height="22" width="22" alt="아시아경제" title="아시아경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    아시아경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="031" data-office-name="아이뉴스24" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/031/2025/03/07/logo_031_100_20250307145552.png"
+                         height="22" width="22" alt="아이뉴스24" title="아이뉴스24"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    아이뉴스24
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="310" data-office-name="여성신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/310/2025/03/07/logo_310_100_20250307145559.png"
+                         height="22" width="22" alt="여성신문" title="여성신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    여성신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="001" data-office-name="연합뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/001/2025/03/07/logo_001_100_20250307145612.png"
+                         height="22" width="22" alt="연합뉴스" title="연합뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    연합뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="422" data-office-name="연합뉴스TV" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/422/2025/03/07/logo_422_100_20250307145714.png"
+                         height="22" width="22" alt="연합뉴스TV" title="연합뉴스TV"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    연합뉴스TV
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="047" data-office-name="오마이뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/047/2025/04/22/logo_047_100_20250422155828.png"
+                         height="22" width="22" alt="오마이뉴스" title="오마이뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    오마이뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="094" data-office-name="월간 산" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/094/2025/03/07/logo_094_100_20250307145631.png"
+                         height="22" width="22" alt="월간 산" title="월간 산"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    월간 산
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="018" data-office-name="이데일리" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/018/2025/03/07/logo_018_100_20250307145653.png"
+                         height="22" width="22" alt="이데일리" title="이데일리"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    이데일리
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="243" data-office-name="이코노미스트" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/243/2025/03/07/logo_243_100_20250307145610.png"
+                         height="22" width="22" alt="이코노미스트" title="이코노미스트"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    이코노미스트
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="007" data-office-name="일다" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/007/2025/03/07/logo_007_100_20250307145619.png"
+                         height="22" width="22" alt="일다" title="일다"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    일다
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="030" data-office-name="전자신문" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/030/2025/03/07/logo_030_100_20250307145551.png"
+                         height="22" width="22" alt="전자신문" title="전자신문"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    전자신문
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="659" data-office-name="전주MBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/659/2025/03/07/logo_659_100_20250307145659.png"
+                         height="22" width="22" alt="전주MBC" title="전주MBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    전주MBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="366" data-office-name="조선비즈" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/366/2025/03/07/logo_366_100_20250307145615.png"
+                         height="22" width="22" alt="조선비즈" title="조선비즈"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    조선비즈
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="023" data-office-name="조선일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/023/2025/03/07/logo_023_100_20250307145706.png"
+                         height="22" width="22" alt="조선일보" title="조선일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    조선일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="123" data-office-name="조세일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/123/2025/03/07/logo_123_100_20250307145612.png"
+                         height="22" width="22" alt="조세일보" title="조세일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    조세일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="033" data-office-name="주간경향" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/033/2025/03/07/logo_033_100_20250307145555.png"
+                         height="22" width="22" alt="주간경향" title="주간경향"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    주간경향
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="037" data-office-name="주간동아" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/037/2025/03/07/logo_037_100_20250307145601.png"
+                         height="22" width="22" alt="주간동아" title="주간동아"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    주간동아
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="053" data-office-name="주간조선" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/053/2025/03/07/logo_053_100_20250307145635.png"
+                         height="22" width="22" alt="주간조선" title="주간조선"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    주간조선
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="353" data-office-name="중앙SUNDAY" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/353/2025/03/07/logo_353_100_20250307145556.png"
+                         height="22" width="22" alt="중앙SUNDAY" title="중앙SUNDAY"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    중앙SUNDAY
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="025" data-office-name="중앙일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/025/2025/03/07/logo_025_100_20250307145712.png"
+                         height="22" width="22" alt="중앙일보" title="중앙일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    중앙일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="092" data-office-name="지디넷코리아" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/092/2025/03/07/logo_092_100_20250307145628.png"
+                         height="22" width="22" alt="지디넷코리아" title="지디넷코리아"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    지디넷코리아
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="449" data-office-name="채널A" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/449/2025/03/07/logo_449_100_20250307145624.png"
+                         height="22" width="22" alt="채널A" title="채널A"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    채널A
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="640" data-office-name="코리아중앙데일리" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/640/2025/03/07/logo_640_100_20250307145614.png"
+                         height="22" width="22" alt="코리아중앙데일리" title="코리아중앙데일리"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    코리아중앙데일리
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="044" data-office-name="코리아헤럴드" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/044/2025/03/07/logo_044_100_20250307145608.png"
+                         height="22" width="22" alt="코리아헤럴드" title="코리아헤럴드"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    코리아헤럴드
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="296" data-office-name="코메디닷컴" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/296/2025/03/07/logo_296_100_20250307145636.png"
+                         height="22" width="22" alt="코메디닷컴" title="코메디닷컴"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    코메디닷컴
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="014" data-office-name="파이낸셜뉴스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/014/2025/03/07/logo_014_100_20250307145643.png"
+                         height="22" width="22" alt="파이낸셜뉴스" title="파이낸셜뉴스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    파이낸셜뉴스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="002" data-office-name="프레시안" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/002/2025/03/07/logo_002_100_20250307145612.png"
+                         height="22" width="22" alt="프레시안" title="프레시안"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    프레시안
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="028" data-office-name="한겨레" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/028/2025/03/07/logo_028_100_20250307145718.png"
+                         height="22" width="22" alt="한겨레" title="한겨레"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한겨레
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="036" data-office-name="한겨레21" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/036/2025/03/07/logo_036_100_20250307145600.png"
+                         height="22" width="22" alt="한겨레21" title="한겨레21"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한겨레21
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="050" data-office-name="한경비즈니스" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/050/2025/03/07/logo_050_100_20250307145629.png"
+                         height="22" width="22" alt="한경비즈니스" title="한경비즈니스"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한경비즈니스
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="015" data-office-name="한국경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/015/2025/03/07/logo_015_100_20250307145644.png"
+                         height="22" width="22" alt="한국경제" title="한국경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한국경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="215" data-office-name="한국경제TV" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/215/2025/03/07/logo_215_100_20250307145651.png"
+                         height="22" width="22" alt="한국경제TV" title="한국경제TV"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한국경제TV
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="469" data-office-name="한국일보" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/469/2025/03/07/logo_469_100_20250307145719.png"
+                         height="22" width="22" alt="한국일보" title="한국일보"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    한국일보
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="016" data-office-name="헤럴드경제" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/016/2025/03/07/logo_016_100_20250307145646.png"
+                         height="22" width="22" alt="헤럴드경제" title="헤럴드경제"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    헤럴드경제
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="346" data-office-name="헬스조선" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/346/2025/03/27/logo_346_100_20250327110759.png"
+                         height="22" width="22" alt="헬스조선" title="헬스조선"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    헬스조선
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="655" data-office-name="CJB청주방송" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/655/2025/03/07/logo_655_100_20250307145649.png"
+                         height="22" width="22" alt="CJB청주방송" title="CJB청주방송"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    CJB청주방송
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="661" data-office-name="JIBS" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/661/2025/03/07/logo_661_100_20250307145705.png"
+                         height="22" width="22" alt="JIBS" title="JIBS"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    JIBS
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="437" data-office-name="JTBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/437/2026/01/08/logo_437_100_20260108163429.png"
+                         height="22" width="22" alt="JTBC" title="JTBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    JTBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="660" data-office-name="kbc광주방송" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/660/2025/03/07/logo_660_100_20250307145705.png"
+                         height="22" width="22" alt="kbc광주방송" title="kbc광주방송"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    kbc광주방송
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="056" data-office-name="KBS" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/056/2025/03/07/logo_056_100_20250307145641.png"
+                         height="22" width="22" alt="KBS" title="KBS"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    KBS
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="214" data-office-name="MBC" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/214/2025/03/07/logo_214_100_20250307145647.png"
+                         height="22" width="22" alt="MBC" title="MBC"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    MBC
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="057" data-office-name="MBN" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/057/2025/06/27/logo_057_100_20250627104110.png"
+                         height="22" width="22" alt="MBN" title="MBN"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    MBN
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="055" data-office-name="SBS" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/055/2025/03/26/logo_055_100_20250326142328.png"
+                         height="22" width="22" alt="SBS" title="SBS"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    SBS
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="374" data-office-name="SBS Biz" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/374/2025/03/07/logo_374_100_20250307145639.png"
+                         height="22" width="22" alt="SBS Biz" title="SBS Biz"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    SBS Biz
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="448" data-office-name="TV조선" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/448/2025/03/07/logo_448_100_20250307145622.png"
+                         height="22" width="22" alt="TV조선" title="TV조선"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    TV조선
+                </strong>
+            </a>
+        </div>
+    
+        
+        
+        <div class="psl_press_item _press_item">
+            <a href="javascript:;" role="tab" aria-selected="false"
+               data-office-id="052" data-office-name="YTN" class="psl_press_link _press_link"
+               >
+                <div class="psl_press_thumb">
+                    <img src="https://mimgnews.pstatic.net/image/upload/office_logo/052/2025/03/07/logo_052_100_20250307145633.png"
+                         height="22" width="22" alt="YTN" title="YTN"
+                         onerror="showNoImage(this)"/>
+                </div>
+                <strong class="psl_press_name">
+                    YTN
+                </strong>
+            </a>
+        </div>
+    
+</script>
+
+
+		</header>
+
+		
+		
+
+
+
+
+
+	
+	
+	
+	
+		
+	
+	
+	
+
+
+
+<div class="calendar_wrap _date_picker_calendar"
+	
+		data-nclk-select-date="edt.calsel"
+		data-nclk-next-month="edt.calm"
+		data-nclk-prev-month="edt.calm"
+		data-nclk-close-calendar="edt.calx"
+	>
+	
+	<div class="calendar_slide _date_layer">
+		<button type="button" class="calendar_layer_button _open_calendar_btn _date_title" onclick="nclk(event,'edt.cal','','');">2026.02.27.금<span class="blind">달력보기</span></button>
+		<button type="button" class="calendar_prev_button _prev_day_btn" onclick="nclk(event,'edt.calm','','');"><span class="blind">이전날 목록보기</span></button>
+		<button type="button" class="calendar_next_button _next_day_btn" onclick="nclk(event,'edt.calm','','');"><span class="blind">다음날 목록보기</span></button>
+	</div>
+	<div class="calendar_layer egjs_no_tap_highlight _calendar_layer is_hidden">
+	</div>
+</div>
+
+
+		<div class="opinion_calendar_content _content_persist">
+			<ul class="opinion_editorial_list _content_list">
+				
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/032/0003430269?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/032/2025/03/07/logo_032_100_20250307145554.png' width='18' height='18' alt='경향신문' title='경향신문' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">경향신문</strong>
+								</div>
+								<p class="description">구글에 고정밀 지도 조건부 반출, 안보·국익 촘촘히 챙기라</p>
+								<span class="time">6분전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/032/0003430265?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/032/2025/03/07/logo_032_100_20250307145554.png' width='18' height='18' alt='경향신문' title='경향신문' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">경향신문</strong>
+								</div>
+								<p class="description">교육부 근현대사 수업 강화, 양보다 질적 효과 높여야</p>
+								<span class="time">20분전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/022/0004108983?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/022/2025/03/20/logo_022_100_20250320162643.png' width='18' height='18' alt='세계일보' title='세계일보' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">세계일보</strong>
+								</div>
+								<p class="description">李 “투기용 1주택도 불이익”, 선의의 피해자 없어야 [논설실의 관점]</p>
+								<span class="time">39분전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/014/0005484074?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/014/2025/03/07/logo_014_100_20250307145643.png' width='18' height='18' alt='파이낸셜뉴스' title='파이낸셜뉴스' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">파이낸셜뉴스</strong>
+								</div>
+								<p class="description">수출·증시 호조에도 닫힌 지갑, 낙수효과 끊긴 구조 개선해야</p>
+								<span class="time">1시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/022/0004108976?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/022/2025/03/20/logo_022_100_20250320162643.png' width='18' height='18' alt='세계일보' title='세계일보' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">세계일보</strong>
+								</div>
+								<p class="description">갈수록 민심과 멀어지는 국힘, 與 폭주에도 속수무책 [논설실의 관점]</p>
+								<span class="time">1시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/001/0015929085?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/001/2025/03/07/logo_001_100_20250307145612.png' width='18' height='18' alt='연합뉴스' title='연합뉴스' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">연합뉴스</strong>
+								</div>
+								<p class="description">[주요 신문 사설](27일 석간)</p>
+								<span class="time">2시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/021/0002773783?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/021/2025/03/07/logo_021_100_20250307145703.png' width='18' height='18' alt='문화일보' title='문화일보' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">문화일보</strong>
+								</div>
+								<p class="description">대구시장 뺏길라 TK통합 유턴했다니… 끝없는 野 추락</p>
+								<span class="time">5시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/021/0002773782?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/021/2025/03/07/logo_021_100_20250307145703.png' width='18' height='18' alt='문화일보' title='문화일보' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">문화일보</strong>
+								</div>
+								<p class="description">2년 만에 꺾인 강남 집값, 전월세난 조짐에도 대비해야</p>
+								<span class="time">5시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/021/0002773779?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/021/2025/03/07/logo_021_100_20250307145703.png' width='18' height='18' alt='문화일보' title='문화일보' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">문화일보</strong>
+								</div>
+								<p class="description">한전 사상 최대 흑자 명암과 산업용 전기료 인하 필요성</p>
+								<span class="time">5시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/016/0002606200?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/016/2025/03/07/logo_016_100_20250307145646.png' width='18' height='18' alt='헤럴드경제' title='헤럴드경제' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">헤럴드경제</strong>
+								</div>
+								<p class="description"> 100주 만에 꺾인 강남 집값, 이제는 공급 속도가 관건</p>
+								<span class="time">5시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/016/0002606192?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/016/2025/03/07/logo_016_100_20250307145646.png' width='18' height='18' alt='헤럴드경제' title='헤럴드경제' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">헤럴드경제</strong>
+								</div>
+								<p class="description"> 증시 날고 성장률 전망 올랐지만 더 커진 양극화 경고음</p>
+								<span class="time">5시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/640/0000085002?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/640/2025/03/07/logo_640_100_20250307145614.png' width='18' height='18' alt='코리아중앙데일리' title='코리아중앙데일리' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">코리아중앙데일리</strong>
+								</div>
+								<p class="description">North’s nuclear threats underscore need for a realistic, publicly backed South policy (KOR)</p>
+								<span class="time">7시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/640/0000085001?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/640/2025/03/07/logo_640_100_20250307145614.png' width='18' height='18' alt='코리아중앙데일리' title='코리아중앙데일리' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">코리아중앙데일리</strong>
+								</div>
+								<p class="description">Egypt’s story: The birth of a civilization and the durability of culture (KOR)</p>
+								<span class="time">7시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/009/0005642912?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/009/2025/03/07/logo_009_100_20250307145623.png' width='18' height='18' alt='매일경제' title='매일경제' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">매일경제</strong>
+								</div>
+								<p class="description">국평 관리비가 100만원?…李 대통령 “관리비 부풀리기는 사기·횡령” [논설실 Pick]</p>
+								<span class="time">7시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/001/0015928070?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/001/2025/03/07/logo_001_100_20250307145612.png' width='18' height='18' alt='연합뉴스' title='연합뉴스' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">연합뉴스</strong>
+								</div>
+								<p class="description">[전국 주요 신문 사설](27일 조간)</p>
+								<span class="time">8시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/640/0000084989?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/640/2025/03/07/logo_640_100_20250307145614.png' width='18' height='18' alt='코리아중앙데일리' title='코리아중앙데일리' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">코리아중앙데일리</strong>
+								</div>
+								<p class="description">함께 할 때 완성: BTS가 연 축제의 장, ARMY가 화답하다</p>
+								<span class="time">9시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/081/0003621379?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/081/2025/03/07/logo_081_100_20250307145604.png' width='18' height='18' alt='서울신문' title='서울신문' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">서울신문</strong>
+								</div>
+								<p class="description"> 통합 뜻 모은 대구·경북… 충남·대전도 대승적 결단 서둘길</p>
+								<span class="time">11시간전</span>
+							</a>
+						</li>
+					
+						<li class="opinion_editorial_item">
+							<a href="https://n.news.naver.com/mnews/article/081/0003621378?sid=110" class="link" onclick="nclk(event,'edt.art','','');">
+								<div class="press_area">
+									<div class="press_image">
+										<img src='https://mimgnews.pstatic.net/image/upload/office_logo/081/2025/03/07/logo_081_100_20250307145604.png' width='18' height='18' alt='서울신문' title='서울신문' class='' style='' onerror='showNoImage(this)' >
+									</div>
+									<strong class="press_name">서울신문</strong>
+								</div>
+								<p class="description"> 더 뻔뻔해진 北 ‘통미봉남’… 한미 공조 빈틈없어야 하건만</p>
+								<span class="time">11시간전</span>
+							</a>
+						</li>
+					
+				
+			</ul>
+
+			
+
+
+
+
+
+
+<div class="opinion_error _empty_data_view is_hidden">
+	<div class="ico_error"></div>
+	<strong class="error_title">언론사 기사가 없습니다.</strong>
+</div>
+
+
+			
+
+
+
+
+
+
+<div class="opinion_error _error_data_view is_hidden">
+	<div class="ico_error"></div>
+	<strong class="error_title">페이지를 찾을 수 없습니다.</strong>
+	<p class="error_desc">입력한 주소가 잘못되었거나, 사용이 일시 중단되어<br>요청한 페이지를 찾을 수 없습니다.<br>서비스 이용에 불편을 드려 죄송합니다.</p>
+	<div class="error_btns">
+		<a href="javascript:history.back();" class="error_btn _BACK">이전</a>
+		<a href="/opinion/home" class="error_btn">오피니언</a>
+	</div>
+</div>
+
+
+			<div class="r_more r_more_load _more_loading_view ">
+				<div class="r_more_loader">
+					
+<div class="r_more_loading_icon">
+	<i class="r_more_dot as_1" aria-label="로딩"></i>
+	<i class="r_more_dot as_2" aria-label="로딩"></i>
+	<i class="r_more_dot as_3" aria-label="로딩"></i>
+	<i class="r_more_dot as_4" aria-label="로딩"></i>
+	<i class="r_more_dot as_5" aria-label="로딩"></i>
+	<i class="r_more_dot as_6" aria-label="로딩"></i>
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+
+
+<script>
+	var targetDate = "20260227";
+	var targetOfficeId = "";
+	var targetOfficeName = "";
+	(function() {
+		var htPersistedData = JSON.parse(history.state);
+		var oNavigation = (performance && performance.navigation);
+
+		
+		if (!oNavigation
+			|| oNavigation.type !== (oNavigation.TYPE_BACK_FORWARD || 2)) {
+			return;
+		}
+
+		
+		if (!htPersistedData || !htPersistedData.KEY___persist___) {
+			return;
+		}
+
+		htPersistedData = htPersistedData.KEY___persist___;
+
+		targetDate = htPersistedData.selectedDate;
+		targetOfficeId = htPersistedData.selectedOfficeId;
+		targetOfficeName = htPersistedData.selectedOfficeName;
+
+		document.querySelector("._content_persist").innerHTML = htPersistedData.contents;
+		document.querySelector("._date_title").innerHTML = htPersistedData.dateTitle;
+		document.querySelector("._opinion_press_toggle").innerHTML = targetOfficeName ? targetOfficeName : "언론사 전체";
+	})();
+</script>
+
+
+                
+
+<section class="main_aside _aside_wrapper">
+	<div class="main_aside_inner _aside_content">
+		<h2 class="blind">구독 목록</h2>
+		<div class="_aside"></div> 
+<script>
+doAfterLoadEnd(loadAside);
+
+
+function loadAside() {
+    var forcePcVersion = "";
+
+    if (isMobileDevice() && !forcePcVersion) {
+        return;
+    }
+    var iframe = append(); 
+    var asideFixed;
+
+    window.addEventListener('message', function(event) {
+        var data = event.data;
+
+        if (event.origin !== "https://news.naver.com") {  
+            return;
+        }
+
+        if (data.type === "setIframeSize" && data.height) {
+            iframe.style.height = data.height + 'px';
+            iframe.style.visibility = ""; 
+
+            try {
+                asideFixed.deactivate(); // event 중복 적용되지 않게
+            } catch(e) {}
+
+            asideFixed = AsideFixed({
+                "wrapper" : document.querySelector("._aside_wrapper")
+                
+            });
+        }
+    });
+    
+    
+    function append() {
+        var iframe = document.createElement('iframe');
+
+        iframe.title = "구독 및 추천 채널";
+        iframe.width = "100%";
+        iframe.height = "0"; 
+        iframe.style.visibility = "hidden"; 
+        iframe.setAttribute("frameborder", "no");
+        iframe.setAttribute("scrolling", "no");
+        iframe.src = "https://news.naver.com/aside?oid=";
+
+        document.querySelector("._aside").appendChild(iframe);
+
+        return iframe;
+    }
+}
+</script>
+	</div>
+</section>
+
+            </div>
+        </div>
+        
+
+
+
+
+<hr /> 
+<div class="mp_footer">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="f_subinfo">
+        <div class="f_subinfoinner">
+            <div class="f_notice">
+                <h5 class="f_notice_badge">공지</h5>
+                <a href="https://news.naver.com/ombudsman/news/29486"
+                   data-mpurl='{"m":"https://news.naver.com/ombudsman/news/29486","p":"https://news.naver.com/ombudsman/news/29486"}'
+                   class="f_notice_link" onclick="nclk(event, 'fot.noticetext', '', '');">
+                    <p class="f_notice_text">댓글 추모 기능 적용 안내</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="f_maininfo">
+        <div class="f_maininfoinner">
+            <a href="javascript:topPage();" class="r_pg_top _go_top" id="goTop" onclick="nclk(event, 'fot.pctop', '', '');">맨위로</a>
+
+            <footer role="contentinfo">
+                <p class="u_cr">
+                    
+
+
+
+
+<span class="u_ftm _footer_login">
+    <span class="u_cri u_cri_v1"><a href="https://m.naver.com/services.html"  data-mpurl='{"m":"https://m.naver.com/services.html","p":"https://www.naver.com/more.html"}' class="u_cra" onclick="nclk(event,'fot.serviceall','','');">전체서비스</a></span>
+</span>
+<span class="u_ftm">
+    <span class="u_cri u_cri_v1"><a href="https://news.naver.com/ombudsman" data-mpurl='{"m":"https://news.naver.com/ombudsman","p":"https://news.naver.com/ombudsman"}' class="u_cra" onclick="nclk(event,'fot.guide','','');">서비스안내</a></span>
+    <span class="u_cri u_cri_v1"><a href="https://help.naver.com/alias/news/news_001.naver" data-mpurl='{"m":"https://help.naver.com/alias/news/news_001.naver","p":"https://help.naver.com/alias/news/news_001.naver"}' class="u_cra" onclick="nclk(event,'fot.report','','');">오류신고</a></span>
+    <span class="u_cri u_cri_v1"><a href="https://help.naver.com/alias/news/news_007.naver" data-mpurl='{"m":"https://help.naver.com/alias/news/news_007.naver","p":"https://help.naver.com/alias/news/news_007.naver"}' class="u_cra" onclick="nclk(event,'fot.help','','');">고객센터</a></span>
+</span>
+
+                    
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+
+<span class="cr_rule">
+
+    <a href="https://news.naver.com/ombudsman/edit" data-mpurl='{"m":"https://news.naver.com/ombudsman/edit","p":"https://news.naver.com/ombudsman/edit"}'  class="cr_rulea" id="newsEditLink" onclick="nclk(event,'fot.editor','','');">기사배열 책임자 : 김수향</a>
+
+    <span class="cr_rulea">청소년 보호 책임자 : 이정규</span>
+</span>
+
+<span class="u_copyright">이 콘텐츠의 저작권은 저작권자 또는 제공처에 있으며, 이를 무단 이용하는 경우 저작권법 등에 따라 법적 책임을 질 수 있습니다.</span>
+<span class="u_naverlogo"><a href="https://www.navercorp.com/" data-mpurl='{"m":"https://www.navercorp.com/","p":"https://www.navercorp.com/"}' class="u_naverlogo_a" id="nhnLink" onclick="nclk(event,'fot.navercorp','','');">NAVER</a></span>
+
+                </p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+        
+        
+            
+            
+            
+                
+                
+                    <script type="text/javascript" src="https://ssl.pstatic.net/static.news/mnews/resources/20260227_010345/js/generated/news.mobile.js"></script>
+                
+                    <script type="text/javascript" src="https://ssl.pstatic.net/static.news/mnews/resources/20260227_010345/js/generated/statistics_jquery.js"></script>
+                
+                    <script type="text/javascript" src="https://ssl.pstatic.net/static.news/mnews/resources/20260227_010345/js/generated/opinionhome.dependency.js"></script>
+                
+            
+        
+
+        
+        
+            <script type="text/javascript">
+/**
+ * 이 파일은 모바일 뉴스 서비스 전체 페이지에 적용되는 스크립트로써,
+ * 코드 추가 시 Front-End 성능 관점에서 주의를 요합니다.
+ */
+jQuery(window).on('load', function(){
+    setTimeout(onload, 10);
+
+    function onload(){
+        var oLnb = new news.Lnb('._lnb_scroll');
+        new news.ImageLazyLoader().load("img[data-src]");
+        new news.MoveTopButton("._go_top");
+
+        
+        new news.HistoryManager().init("naver_mobile_news_history", "https://news.naver.com/");
+
+        // iframe lazy-loading
+        (function(){
+            try {
+                Array.prototype.slice.apply(document.querySelectorAll('iframe[data-src]'))
+                    .forEach(function(iframeEl) {
+                        var originSrc = iframeEl.getAttribute('data-src');
+                        if(originSrc) {
+                            iframeEl.setAttribute('src', originSrc);
+                        }
+                    });
+            }catch(e) {}
+        })();
+
+        if(typeof init === "function"){
+            init();
+        }
+
+        var cookie = news.Cookie.getInstance();
+        var isShownNewLnb = cookie.getItem("isShownNewLnb");
+        if(isShownNewLnb == null) {
+            isShownNewLnb = "Y";
+            cookie.setItem("isShownNewLnb", isShownNewLnb, 3650, "", "/");
+            $("._isNew").addClass("is_new");
+        }
+
+        {
+            var footerLogin = jQuery(document).find('._footer_login');
+            if(footerLogin <= 0) {
+                return;
+            }
+
+            // 디바이스에 따라 로그인, 로그아웃 URL 분기
+            var loginUrl = "https://nid.naver.com/nidlogin.login";
+            var logoutUrl = "https://nid.naver.com/nidlogin.logout?";
+            if (news.Util.getAgentInfo().bMobileOrTablet) {
+                loginUrl = "https://nid.naver.com/nidlogin.login?svctype=262144";
+                logoutUrl = "https://nid.naver.com/nidlogin.logout?svctype=262144&";
+            }
+
+            if(news.LoginAssistor.isLoginUser()) {
+                footerLogin.prepend('<span class="u_cri u_cri_v1"><a href="javascript:news.Util.logout(\''+logoutUrl+'url=\'+encodeURIComponent(location.href));" class="u_cra" id="news_logout" onclick="nclk(event,\'fot.logout\',\'\',\'\');" >로그아웃</a></span>')
+            }else {
+                footerLogin.prepend('<span class="u_cri u_cri_v1"><a href="'+loginUrl+'" class="u_cra" id="news_login" onclick="nclk(event,\'fot.login\',\'\',\'\');" >로그인</a></span>')
+            }
+        }
+    }
+});
+</script>
+
+
+        
+            
+
+
+
+
+	
+	
+		
+	
+	
+
+<script type="text/javascript">
+	doAfterLoadEnd(function () {
+		try {
+			new Opinion2DepthManager({
+				serviceTarget: "editorial",
+				date: targetDate,
+				officeId: targetOfficeId,
+				officeName: targetOfficeName,
+				mediaDomain: "https://media.naver.com",
+				mediaOneDomain: "https://n.news.naver.com"
+			});
+		} catch (e) {
+		}
+	});
+</script>
+
+        
+
+        
+        <script type="text/javascript">
+    var config = {
+        "neloCollectorUrl": "https://kr-col-ext.nelo.navercorp.com/_store",
+        "projectName": "P638fcb_news-mobile-front",
+        "host": "real"
+    }
+
+    try{
+        neloSender.init(config);
+    }catch(e){}
+</script>
+
+
+        <script>
+    var gnb_service = 'news';
+    var gnb_logout = encodeURIComponent(location.href);
+    var gnb_template = 'gnb_utf8';
+    var gnb_brightness = 3;
+    var gnb_item_hide_option= 128; 
+
+    doAfterLoadEnd(function () {
+        try {
+            GlobalMPUrlManager.init();
+        } catch (e) {}
+    });
+
+    doAfterLoadEnd(function() {
+        if (!document.querySelector('#gnb') || isMobileDevice() === true) { 
+            return;
+        }
+        
+        var gnb_src = "https://ssl.pstatic.net/static.gn/templates/gnb_utf8?2026022716";
+
+        // GnbHelper를 이용하여 GNB Layer를 닫을 수 있도록 지원한다.
+        if (window.jindo) {
+            jindo.LazyLoading.load(
+                gnb_src,
+                function() {
+                    try {
+                        getGNB();
+                    } catch(e) {}
+                },
+                'utf-8'
+            );
+
+            jindo.$Fn(function (oEvent) {
+                
+                GnbHelper.attachClick(oEvent.$value().target);
+            }).attach(document, 'click');
+        } else if (window.jQuery) {
+            new news.JsLoader().
+                load(
+                    [gnb_src],
+                    function() {
+                        try {
+                            getGNB();
+                        } catch(e) {}
+                    }
+                );
+
+            $(document).on("click", function(event) {
+                GnbHelper.attachClick(event.target);
+            });
+        }
+    });
+</script>
+
+<script> 
+    doAfterLoadEnd(function() {
+        if (!document.querySelector('.news_header')){ 
+            return;
+        }
+
+        try {
+            GnbFloatingManager.init();
+        } catch (e) { }
+    });
+</script>
+<script>
+doAfterLoadEnd(function() {
+    try {
+        new SearchAutoComplete({
+            content: document.querySelector("._search_content"),
+            contentToggleBtn: document.querySelector("._search_content_toggle_btn"),
+            isMobile: isMobileDevice(),
+            nClickType: "newsM"
+        });
+    } catch(e) {}
+});
+</script>
+        <!-- LCS -->
+        
+
+
+
+<script type="text/javascript">
+
+function initMa(){
+    var data = {
+        "service": "news",
+        "baseInfo": {
+            "category": (function(){
+                
+                var result = "";
+
+                if(result !== ""){
+                    return result;
+                }
+                try{
+                    
+                    return document.querySelector('meta[property="og:title"]')
+                        .getAttribute('content')
+                        .replace(/[\s]*:+[\s]*네이버[\s]*뉴스/, '');
+                }catch(e){
+                    return "";
+                }
+            })()
+        },
+        "extraInfo": {}
+    };
+
+    
+
+    try{
+        ma.init({
+            api: "https://ma.news.naver.com/l",
+            data: data
+        });
+    }catch(e){}
+}
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+    window.ntm_news = window.ntm_news || [];
+
+    doAfterLoadEnd(function () {
+        var ntmUrl = "https://ntm.pstatic.net/scripts/ntm_b7032129a433.js";
+
+        
+        
+        
+
+        ntmInit(ntmUrl);
+    });
+</script>
+
+
+<script type="text/javascript">
+    // NLog pageview 전송
+    var eventType = "onpageshow" in window ? "pageshow" : "load";
+    jQuery(window).on(eventType, function() {
+        var sti = "";
+        var gdid = "";
+        
+        
+            
+
+            
+            
+                if (isMobileDevice()) {
+                    // mobile
+                    
+                        sti = "m_news";
+                    
+                } else {
+                    // pc
+                    
+                }
+            
+        
+
+        // ma 전송
+        try {
+            initMa();
+        } catch (e) {
+        }
+
+        ntmCustomPageViewSend({
+            sti: sti,
+            gdid: gdid
+        });
+    });
+</script>
+
+        <!-- //LCS -->
+    </body>
+</html>

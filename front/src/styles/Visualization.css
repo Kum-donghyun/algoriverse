@@ -107,6 +107,113 @@
     gap: 30px;
 }
 
+/* Editorial grid - handled by OpinionBot.css now */
+.editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.editorial-paper-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px #0001;
+    padding: 14px;
+    min-height: 180px;
+}
+
+.editorial-list {
+    margin-top: 10px;
+}
+
+.editorial-item {
+    margin-bottom: 18px;
+}
+
+.ed-title button {
+    background: none;
+    border: none;
+    color: #764ba2;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1em;
+    padding: 0;
+    transition: color 0.15s;
+}
+.ed-title button:hover {
+    color: #667eea;
+    text-decoration: underline;
+}
+
+.ed-image-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0001;
+}
+
+.ed-snippet {
+    color: #444;
+    font-size: 0.97em;
+    margin-bottom: 8px;
+}
+
+.ed-key-sentences-preview ul {
+    margin: 6px 0 0 0;
+    padding-left: 18px;
+}
+.ed-key-sentences-preview li {
+    background: #f4f1ea;
+    border-radius: 6px;
+    padding: 3px 7px;
+    margin-bottom: 2px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Modal for editorial full text */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75); display: flex; align-items: center;
+    justify-content: center; z-index: 1000; padding: 20px;
+}
+.modal-card {
+    background: #fdfdfb; width: 100%; max-width: 800px;
+    max-height: 90vh; border-radius: 16px; overflow-y: auto;
+    position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    padding: 32px 28px 24px 28px;
+}
+.modal-card h2 {
+    font-size: 1.35em;
+    font-weight: 800;
+    color: #222;
+}
+.modal-card img {
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #0001;
+}
+.modal-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+.modal-card li {
+    background: #f4f1ea;
+    border-left: 4px solid #764ba2;
+    margin-bottom: 6px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #222;
+}
+.modal-card a {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 /* 4. 개별 기사 카드 (완벽 재현) */
 .article-card {
     background: white;

@@ -1,16 +1,19 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const db = require('./models'); // db 객체 import
 const newsRoutes = require('./routes/newsRoutes');
 const userRoutes = require('./routes/userRoutes');
-const loadingRoutes = require('./routes/loadingRoutes');
+// const loadingRoutes = require('./routes/loadingRoutes');
 const wordRoutes = require('./routes/wordRoutes');
 const boardRoutes = require('./routes/BoardRoutes');
 const chatbotRoutes = require('./routes/ChatbotRoutes');
 const siteChatbotRoutes = require('./routes/SiteChatbotRoutes');
 const guidanceRoutes = require('./routes/GuidanceRoutes');
+const issueRoutes = require('./routes/issueRoutes');
+const editorialRoutes = require('./routes/editorialRoutes');
 // const insightRoutes = require('./routes/InsightRoutes');
 
 const app = express();
@@ -29,12 +32,14 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 // 라우터
 app.use('/api/news', newsRoutes);
 app.use('/api/user', userRoutes);
-app.use('/api/analysis', loadingRoutes);
+// app.use('/api/analysis', loadingRoutes);
 app.use('/api/wordcloud', wordRoutes);
 app.use('/api/board', boardRoutes);
 app.use('/api/chat', chatbotRoutes);
 app.use('/api/site-chatbot', siteChatbotRoutes);
 app.use('/api/guidance', guidanceRoutes);
+app.use('/api/issues', issueRoutes);
+app.use('/api/editorials', editorialRoutes);
 // app.use('/api/insight', insightRoutes);
 // app.use('/', loadingRoutes);
 
@@ -49,8 +54,26 @@ app.get('/health', (req, res) => {
   });
 });
 
-// DB 연결 확인 후 서버 실행
-db.sequelize.authenticate()
+// DB 연결 확인 후 서버 실행 (데이터베이스 생성 로직 추가)
+const mysql = require('mysql2/promise');
+const config = require('./config/db')[process.env.NODE_ENV || 'development'];
+
+mysql.createConnection({
+  host: config.host,
+  port: config.port,
+  user: config.username,
+  password: config.password,
+})
+  .then((connection) => {
+    return connection.query(`CREATE DATABASE IF NOT EXISTS \`${config.database}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;`)
+      .then(() => {
+        console.log('✅ 데이터베이스 생성 또는 존재 확인 완료.');
+        return connection.end();
+      });
+  })
+  .then(() => {
+    return db.sequelize.authenticate();
+  })
   .then(() => {
     console.log('✅ 데이터베이스 연결 성공.');
     

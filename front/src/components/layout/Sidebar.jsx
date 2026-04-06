@@ -14,7 +14,7 @@ const Sidebar = ({ isActive }) => {
                     <li><NavLink to="/" end>메인</NavLink></li>
                     <li><NavLink to="/introduce">소개</NavLink></li>
                     <li><NavLink to="/board">게시판</NavLink></li>
-                    <li><NavLink to="/guidance">관점지도</NavLink></li>
+                    <li><NavLink to="/editorials">사설 경향 분석</NavLink></li>
                     <li><NavLink to="/edit">회원수정</NavLink></li>
                     <li><NavLink to="/delete">회원탈퇴</NavLink></li>
                 </ul>

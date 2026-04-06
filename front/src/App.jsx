@@ -8,6 +8,7 @@ import Analysis from './pages/Analysis.jsx';
 import WordCloud from './pages/WordCloud.jsx';
 import Loading from './pages/Loading.jsx';
 import Visualization from './pages/Visualization.jsx';
+import EditorialAnalysis from './pages/EditorialAnalysis.jsx';
 import Bias from './pages/Bias.jsx';
 import Find from './pages/Find.jsx';
 import Introduce from './pages/Introduce.jsx';
@@ -205,6 +206,7 @@ function MainApp() {
         <Route path="quiz" element={<BiasQuiz />} />
       </Route>
       <Route path="/visualization" element={<Visualization keyword={keyword || sessionStorage.getItem('keyword')} onBack={handleGoHome} />} />
+      <Route path="/editorials" element={<EditorialAnalysis />} />
     </Routes>
   );
 }

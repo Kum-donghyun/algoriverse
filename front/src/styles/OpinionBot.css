@@ -1,0 +1,551 @@
+/* ═══════════════════════════════════════════
+   오피니언봇 + 사설 레이아웃 스타일
+   ═══════════════════════════════════════════ */
+
+/* ── 상단 컨트롤 바 (마스트헤드 안) ── */
+.ed-top-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.ed-date-input {
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 600;
+  outline: none;
+  transition: 0.2s;
+  color-scheme: dark;
+}
+.ed-date-input:focus {
+  border-color: #fff;
+  background: rgba(255,255,255,0.25);
+}
+
+.ed-btn {
+  padding: 9px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.92em;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  white-space: nowrap;
+}
+.ed-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ed-btn-outline {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(4px);
+}
+.ed-btn-outline:hover:not(:disabled) {
+  background: rgba(255,255,255,0.3);
+  border-color: #fff;
+}
+
+.ed-btn-primary {
+  background: #fff;
+  color: #764ba2;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.ed-btn-primary:hover:not(:disabled) {
+  background: #f0ebff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.ed-error-msg {
+  margin-top: 12px;
+  background: rgba(239,68,68,0.2);
+  color: #fecaca;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9em;
+}
+
+.ed-count-badge {
+  margin-top: 10px;
+  font-size: 0.88em;
+  opacity: 0.8;
+}
+
+/* ── 메인 레이아웃: 좌 1/3 + 우 2/3 ── */
+.ed-main-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ── 좌측: 오피니언봇 패널 ── */
+.ob-panel {
+  flex: 0 0 32%;
+  max-width: 32%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border: 1px solid #e8e3dc;
+  overflow: hidden;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.ob-panel-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 18px 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.ob-panel-header h2 {
+  margin: 0;
+  font-size: 1.15em;
+  font-weight: 800;
+}
+.ob-meta {
+  font-size: 0.82em;
+  opacity: 0.85;
+}
+
+/* 로딩 */
+.ob-loading {
+  padding: 40px 20px;
+  text-align: center;
+  color: #666;
+}
+.ob-spinner {
+  width: 36px; height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #764ba2;
+  border-radius: 50%;
+  animation: ob-spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes ob-spin { to { transform: rotate(360deg); } }
+.ob-loading p { margin: 4px 0; font-size: 0.92em; }
+.ob-loading-sub { font-size: 0.82em; color: #999; }
+
+/* 비어있음 */
+.ob-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #888;
+}
+.ob-empty-icon { font-size: 2.5em; margin-bottom: 12px; }
+.ob-empty p { margin: 4px 0; font-size: 0.95em; line-height: 1.6; }
+.ob-empty-sub { font-size: 0.82em; color: #aaa; margin-top: 10px !important; }
+
+/* 결과 스크롤 영역 */
+.ob-results-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+.ob-results-scroll::-webkit-scrollbar { width: 5px; }
+.ob-results-scroll::-webkit-scrollbar-thumb { background: #d4d0c8; border-radius: 4px; }
+
+/* 이슈 카드 */
+.ob-issue-card {
+  background: #faf8f5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+  border: 1px solid #ece7e0;
+  transition: box-shadow 0.2s;
+}
+.ob-issue-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+
+.ob-issue-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.ob-issue-badge {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 0.72em;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.ob-issue-name {
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.ob-kw-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.ob-kw-tag {
+  background: #eee8e0;
+  color: #666;
+  font-size: 0.72em;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.ob-issue-summary {
+  font-size: 0.85em;
+  color: #555;
+  line-height: 1.55;
+  margin: 0 0 10px 0;
+  padding: 8px 10px;
+  background: #f0edff;
+  border-radius: 8px;
+  border-left: 3px solid #764ba2;
+}
+
+/* 사설 항목 */
+.ob-ed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ob-ed-item {
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #f0ebe5;
+}
+.ob-ed-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.ob-ed-press-badge {
+  font-size: 0.78em;
+  font-weight: 700;
+  color: #764ba2;
+  background: #f0edff;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.ob-ed-tone {
+  font-size: 0.72em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.ob-ed-argument {
+  font-size: 0.83em;
+  color: #444;
+  line-height: 1.5;
+  margin: 4px 0;
+  font-style: italic;
+}
+.ob-ed-meta-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.ob-ed-frame, .ob-ed-stance {
+  font-size: 0.75em;
+  color: #777;
+  font-weight: 600;
+}
+
+/* ── 우측: 사설 카드 섹션 ── */
+.ed-cards-section {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 뷰 전환 바 */
+.ed-view-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.ed-view-btn {
+  padding: 8px 20px;
+  border-radius: 10px;
+  border: 2px solid #e5ddd4;
+  background: #fff;
+  color: #666;
+  font-weight: 700;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ed-view-btn:hover:not(:disabled) {
+  border-color: #764ba2;
+  color: #764ba2;
+}
+.ed-view-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(118,75,162,0.25);
+}
+.ed-view-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* 신문사별 그리드 (큰 카드 2줄 배치) */
+.ed-press-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.ed-press-bigcard {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e8e3dc;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  padding: 14px;
+  transition: box-shadow 0.2s;
+}
+.ed-press-bigcard:hover {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.ed-press-name {
+  font-size: 0.95em;
+  font-weight: 800;
+  color: #333;
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #764ba2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ed-press-cnt {
+  background: #764ba2;
+  color: #fff;
+  font-size: 0.7em;
+  padding: 1px 7px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.ed-press-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 이슈별 그리드 */
+.ed-issue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.ed-issue-bigcard {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e8e3dc;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  padding: 16px;
+}
+.ed-issue-bigcard-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #667eea;
+}
+.ed-issue-bigcard-header h4 {
+  margin: 0;
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #333;
+}
+.ed-issue-summary-text {
+  font-size: 0.83em;
+  color: #666;
+  margin: 0 0 12px 0;
+  padding: 8px;
+  background: #f8f6ff;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+/* ── 컴팩트 카드 (개별 사설) ── */
+.compact-card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+  background: #faf8f5;
+  border: 1px solid #f0ebe5;
+}
+.compact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.compact-card-img {
+  width: 100%;
+  height: 90px;
+  overflow: hidden;
+}
+.compact-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.compact-card-body {
+  padding: 10px 12px 12px;
+}
+
+.compact-card-title {
+  font-size: 0.88em;
+  font-weight: 700;
+  color: #3b5bdb;
+  margin: 0 0 5px 0;
+  cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+  transition: color 0.15s;
+}
+.compact-card-title:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+.compact-card-snippet {
+  font-size: 0.8em;
+  color: #777;
+  margin: 0 0 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.45;
+}
+
+.compact-card-link {
+  font-size: 0.78em;
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.compact-card-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* ── 모달 ── */
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #764ba2;
+  font-weight: 700;
+  transition: transform 0.15s;
+}
+.modal-close-btn:hover { transform: scale(1.2); }
+
+.modal-press-label {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 0.78em;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.modal-title {
+  font-size: 1.3em;
+  font-weight: 800;
+  color: #222;
+  margin: 10px 0 14px 0;
+}
+.modal-hero-img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.modal-body-text {
+  color: #333;
+  font-size: 1.02em;
+  line-height: 1.75;
+  white-space: pre-line;
+  margin-bottom: 18px;
+}
+.modal-link-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.92em;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.modal-link-btn:hover {
+  box-shadow: 0 4px 14px rgba(118,75,162,0.3);
+  transform: translateY(-1px);
+}
+
+/* ── 반응형 ── */
+@media (max-width: 900px) {
+  .ed-main-layout {
+    flex-direction: column;
+  }
+  .ob-panel {
+    flex: none;
+    max-width: 100%;
+    position: static;
+    max-height: none;
+  }
+  .ed-press-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .ed-top-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ed-press-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ed-issue-grid {
+    grid-template-columns: 1fr;
+  }
+}

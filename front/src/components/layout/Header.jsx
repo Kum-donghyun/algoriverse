@@ -25,7 +25,7 @@ const Header = ({ onLoginClick, loggedInUser, onLogout, onSearch, onLogoClick })
         <form onSubmit={handleSearchSubmit}>
           <input 
             type="text" 
-            placeholder="검색어 입력 (예: 해산, 선거, 경제)" 
+            placeholder="이곳에서 이슈를 검색하면 프레임 별로 뉴스를 분류해서 보여드립니다." 
             className="site-header__search-input"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}

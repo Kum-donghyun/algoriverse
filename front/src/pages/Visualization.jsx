@@ -9,32 +9,56 @@ import '../styles/Visualization.css';
 
 const API_BASE = 'http://localhost:5000';
 
-const EMPHASIS_FRAME_LABELS = {
-  conflict: '갈등 프레임',
-  responsibility: '책임 프레임',
-  economic: '경제 프레임',
-  morality: '도덕 프레임',
-  human_interest: '인간흥미 프레임',
-  other: '기타',
+// ─── 4차원 15유형 프레임 메타데이터 ───
+const FRAME_DIMENSIONS = {
+    functional: {
+        label: '기능적 차원', desc: '이슈 흐름 파악', color: '#6366f1',
+        types: {
+            definition:  { label_kr: '정의/해석', icon: '🔎', color: '#6366f1', bg: '#eef2ff' },
+            cause:       { label_kr: '원인',      icon: '🔗', color: '#8b5cf6', bg: '#f5f3ff' },
+            consequence: { label_kr: '결과/영향', icon: '📉', color: '#a78bfa', bg: '#ede9fe' },
+            remedy:      { label_kr: '대책',      icon: '🛠️', color: '#7c3aed', bg: '#f5f3ff' },
+        },
+    },
+    perspective: {
+        label: '특정관점 차원', desc: '보도 시각', color: '#10b981',
+        types: {
+            social:          { label_kr: '사회',       icon: '👥', color: '#10b981', bg: '#ecfdf5' },
+            economic:        { label_kr: '경제',       icon: '💰', color: '#059669', bg: '#ecfdf5' },
+            policy:          { label_kr: '정책',       icon: '📋', color: '#0d9488', bg: '#f0fdfa' },
+            morality:        { label_kr: '도덕성',     icon: '⚖️', color: '#f59e0b', bg: '#fffbeb' },
+            responsibility:  { label_kr: '책임',       icon: '🎯', color: '#d97706', bg: '#fffbeb' },
+            democratic:      { label_kr: '민주합의',   icon: '🤝', color: '#0ea5e9', bg: '#f0f9ff' },
+            human_interest:  { label_kr: '인간적흥미', icon: '💬', color: '#ec4899', bg: '#fdf2f8' },
+        },
+    },
+    situation: {
+        label: '상태/상황 차원', desc: '이슈 분위기', color: '#ef4444',
+        types: {
+            conflict: { label_kr: '갈등',     icon: '⚔️', color: '#ef4444', bg: '#fef2f2' },
+            crisis:   { label_kr: '위기/위험', icon: '🚨', color: '#dc2626', bg: '#fef2f2' },
+        },
+    },
+    delivery: {
+        label: '전달방식 차원', desc: '보도 형식', color: '#78716c',
+        types: {
+            accusation:  { label_kr: '의혹/고발',   icon: '🔍', color: '#78716c', bg: '#f5f5f4' },
+            informative: { label_kr: '단순정보전달', icon: '📰', color: '#9ca3af', bg: '#f9fafb' },
+        },
+    },
 };
 
-const ISSUE_CLUSTERS = [
-  { key: '전체', keywords: [] },
-  { key: '기타', keywords: [] },
-  { key: '정치적', keywords: ['정치', '정치적', '정치권'] },
-  { key: '민주당', keywords: ['민주당'] },
-  { key: '국민의힘', keywords: ['국민의힘', '국힘'] },
-  { key: '대통령', keywords: ['대통령', '대통령이', '대통령은', '윤석열', '윤 대통령'] },
-  { key: '이재명', keywords: ['이재명'] },
-  { key: '수사', keywords: ['수사', '기소', '압수수색', '검찰', '송치'] },
-  { key: '의혹', keywords: ['의혹', '비리', '논란'] },
-  { key: '특정', keywords: ['특정', '특정인', '특정세력'] },
-  { key: '없어', keywords: [] },
-];
+const FRAME_META = {};
+for (const dim of Object.values(FRAME_DIMENSIONS)) {
+    for (const [key, meta] of Object.entries(dim.types)) {
+        FRAME_META[key] = meta;
+    }
+}
 
 const getFrameLabel = (key) => {
   if (!key) return '';
-  return EMPHASIS_FRAME_LABELS[key] || key;
+  const meta = FRAME_META[key];
+  return meta ? `${meta.icon} ${meta.label_kr}` : key;
 };
 
 const safeLower = (s) => (typeof s === 'string' ? s.toLowerCase() : '');
@@ -164,7 +188,7 @@ const classifyArticlesToIssues = (articles = [], clusters = []) => {
       if (Array.isArray(keywords) && keywords.length > 0) {
         articles.forEach((a) => {
           const text = safeLower(
-            decodeEntities(`${a?.title || ''} ${a?.description_full || a?.description || a?.full_text || ''}`)
+            decodeEntities(`${a?.title || ''} ${a?.full_text || a?.description_full || a?.description || ''}`)
           );
           if (keywords.some((kw) => text.includes(safeLower(kw)))) {
             base[key].push(a);
@@ -179,7 +203,18 @@ const classifyArticlesToIssues = (articles = [], clusters = []) => {
 
 const annotateArticleBody = (article, baseKeyword, extraKeywords = []) => {
   const raw =
-    decodeEntities(article?.description_full || article?.description || article?.full_text || '') || '';
+    decodeEntities(article?.full_text || article?.description_full || article?.description || '') || '';
+  
+  // 백엔드에서 15유형 프레임의 matched_cues가 있으면 이를 활용해 하이라이트
+  let emphasisKeywords = ['비판', '공격', '공세', '대결'];
+  if (Array.isArray(article.evidence)) {
+    article.evidence.forEach(ev => {
+      if (Array.isArray(ev.matched_cues)) {
+        emphasisKeywords.push(...ev.matched_cues);
+      }
+    });
+  }
+  
   const evidences = ensureEvidenceSentences(article, baseKeyword, extraKeywords);
 
   const wrapFirst = (body, snippet, className) => {
@@ -190,10 +225,12 @@ const annotateArticleBody = (article, baseKeyword, extraKeywords = []) => {
   };
 
   let result = raw;
-  const emphasisKeywords = ['비판', '공격', '공세', '대결'];
   if (evidences[0]) result = wrapFirst(result, evidences[0], 'eq-highlight');
 
-  // 강조 프레이밍: 키워드 밑줄만 적용
+  // 중복 키워드 제거
+  emphasisKeywords = [...new Set(emphasisKeywords)];
+
+  // 강조 프레이밍/매칭 키워드 밑줄 적용
   emphasisKeywords.forEach((kw) => {
     const safeKw = escapeForRegex(kw);
     result = result.replace(new RegExp(safeKw, 'g'), `<span class="em-highlight">${kw}</span>`);
@@ -201,6 +238,13 @@ const annotateArticleBody = (article, baseKeyword, extraKeywords = []) => {
 
   const evSentence = evidences[2];
   if (evSentence) result = wrapFirst(result, evSentence, 'ev-highlight');
+
+  // 백엔드에서 내려온 문단 구분이 반영된 full_text가 있다면, 이를 최대한 보존
+  // \n\n 등 명시적 구분이 있으면 그것으로 나누고, 아니면 기존 2-3문장 로직 사용
+  if (result.includes('\n')) {
+    const splitByNewline = result.split(/\n+/).map(p => p.trim()).filter(Boolean);
+    return splitByNewline.map(p => `<p class="article-paragraph" style="margin-bottom:12px;">${p}</p>`).join('');
+  }
 
   // 문단 구분: 마침표 뒤 공백으로 문장 구분하고 2-3문장마다 문단 나누기
   const sentences = result.split(/(?<=[.!?])\s+/).filter(s => s.trim());
@@ -222,11 +266,17 @@ const annotateArticleBody = (article, baseKeyword, extraKeywords = []) => {
 
 const mergeByLink = (frameArticles, newsByLink) => {
   if (!Array.isArray(frameArticles)) return [];
-  return frameArticles.map((a) => {
-    const link = a?.link || a?.originallink;
-    const enriched = link ? newsByLink.get(link) : null;
+  const seen = new Set();
+  const deduped = [];
+  
+  for (const a of frameArticles) {
+    const link = a?.link || a?.originallink || a?.title;
+    if (seen.has(link)) continue;
+    seen.add(link);
+    
+    const enriched = link ? newsByLink.get(link) || Array.from(newsByLink.values()).find(en => en.title === a.title) : null;
     const finalLink = link || enriched?.link || enriched?.originallink;
-    return {
+    deduped.push({
       ...(enriched || {}),
       ...a,
       link: finalLink,
@@ -237,8 +287,9 @@ const mergeByLink = (frameArticles, newsByLink) => {
       description_full: a?.description_full || enriched?.description_full,
       description: a?.description || enriched?.description,
       full_text: a?.full_text || enriched?.full_text,
-    };
-  });
+    });
+  }
+  return deduped;
 };
 
 const ensureFrameEvidenceList = (articles = [], baseKeyword = '', extraKeywords = []) =>
@@ -336,6 +387,7 @@ const Visualization = ({ keyword, onBack }) => {
   const [newsArticles, setNewsArticles] = useState([]); // array
 
   const [activeFrameTab, setActiveFrameTab] = useState('전체');
+  const [activeDimTab, setActiveDimTab] = useState('전체');
   const [activeIssueTab, setActiveIssueTab] = useState('전체');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -356,10 +408,12 @@ const Visualization = ({ keyword, onBack }) => {
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const autoOpen = params.get('autoOpen');
-    
+
     if (autoOpen === 'issue') {
       setViewMode('issue');
       console.log('워드 클라우드에서 이동: 이슈 탭 자동 활성화');
+    } else if (autoOpen === 'frame') {
+      setViewMode('frame');
     }
   }, [location.search]);
 
@@ -379,6 +433,10 @@ const Visualization = ({ keyword, onBack }) => {
     loadLexicon();
   }, []);
 
+  // --- 데이터 로딩 (기존 AI 파이프라인은 비활성화 가능) ---
+  // 백업된 AI 로직을 보존해두었으므로 여기선 모델 기반 자동 분석 호출을 옵션으로 제어합니다.
+  const AI_DISABLED = true; // true로 두면 기존 모델 호출(extractIssueClusters 등)을 하지 않습니다.
+
   useEffect(() => {
     if (!keyword) {
       setError('분석할 키워드가 제공되지 않았습니다.');
@@ -390,50 +448,46 @@ const Visualization = ({ keyword, onBack }) => {
       setLoading(true);
       setError(null);
       try {
-        let nextFrameSet = null;
-        let nextNews = [];
-
-        const [frameRes, newsRes] = await Promise.allSettled([
-          fetch(`${API_BASE}/api/news/frame-set/${encodeURIComponent(keyword)}`),
-          fetch(`${API_BASE}/api/news/news-set/${encodeURIComponent(keyword)}`),
-        ]);
-
-        const frameOk = frameRes.status === 'fulfilled' && frameRes.value.ok;
-        const newsOk = newsRes.status === 'fulfilled' && newsRes.value.ok;
-
-        if (frameOk) {
-          const frameJson = await frameRes.value.json();
-          nextFrameSet = frameJson;
+        const res = await fetch(`${API_BASE}/api/issues/detail/${encodeURIComponent(keyword)}`);
+        
+        // 이슈 데이터가 없으면 fallback으로 넘길 수도 있지만,
+        // 이제 issueController가 없으면 새로 수집 및 프레임 분류(15유형)를 수행합니다.
+        if (!res.ok) {
+          throw new Error('이슈 데이터를 불러올 수 없습니다.');
         }
 
-        if (newsOk) {
-          const newsJson = await newsRes.value.json();
-          nextNews = Array.isArray(newsJson) ? newsJson : [];
+        const data = await res.json();
+        
+        let nextNews = data.articles || [];
+        let nextFrameSet = data.frameData?.byFrame || null;
+
+        // frameSetRaw를 { type: [articles] } 형태로 변환
+        if (!nextFrameSet && data.frameData) {
+           nextFrameSet = data.frameData.byFrame;
         }
 
-        if (!frameOk && !newsOk) {
-          const fallback = await fetch(`${API_BASE}/api/news/analyzed/${encodeURIComponent(keyword)}`);
-          if (!fallback.ok) throw new Error('Failed to load analyzed news set.');
-          const data = await fallback.json();
-          if (Array.isArray(data)) {
-            nextNews = data;
-          } else if (data && typeof data === 'object') {
-            nextFrameSet = data;
-          }
-        }
-
+        // 혹시나 이미지 보완이 필요하다면 (issueController에서도 이미 하지만 fallback)
         nextNews = await enrichNewsImages(nextNews, keyword);
-        if (!hasFrameData(nextFrameSet) && Array.isArray(nextNews) && nextNews.length > 0) {
-          nextFrameSet = buildFallbackFrameSet(nextNews, keyword, issueKeywords);
-        }
 
         setFrameSetRaw(nextFrameSet);
         setNewsArticles(nextNews);
 
-        // 실시간 이슈 클러스터 추출
-        if (nextNews.length > 0) {
-          extractIssueClusters(nextNews, keyword);
+        // 연관 키워드를 이슈 탭용으로 (전체, 기타 외)
+        if (data.relatedKeywords) {
+          const clusters = [
+            { key: '전체', label: '전체', keywords: [], count: nextNews.length }
+          ];
+          data.relatedKeywords.slice(0, 8).forEach(kw => {
+            clusters.push({
+              key: kw.word,
+              label: kw.word,
+              keywords: [kw.word],
+              count: kw.count || 0
+            });
+          });
+          setIssueClusters(clusters);
         }
+
       } catch (err) {
         setError(err?.message || '데이터를 불러오는 중 오류가 발생했습니다.');
       } finally {
@@ -484,9 +538,16 @@ const Visualization = ({ keyword, onBack }) => {
   }, [enrichedNewsArticles]);
 
   const frameTabs = useMemo(() => {
-    const keys = frameSetRaw && typeof frameSetRaw === 'object' ? Object.keys(frameSetRaw) : [];
-    return ['전체', ...keys];
-  }, [frameSetRaw]);
+    if (!frameSetRaw || typeof frameSetRaw !== 'object') return ['전체'];
+    const tabs = ['전체'];
+    if (activeDimTab === '전체') {
+      tabs.push(...Object.keys(frameSetRaw).filter(k => Array.isArray(frameSetRaw[k]) && frameSetRaw[k].length > 0));
+    } else {
+      const dimTypes = FRAME_DIMENSIONS[activeDimTab]?.types || {};
+      tabs.push(...Object.keys(dimTypes).filter(k => Array.isArray(frameSetRaw[k]) && frameSetRaw[k].length > 0));
+    }
+    return tabs;
+  }, [frameSetRaw, activeDimTab]);
 
   const frameTabCounts = useMemo(() => {
     const out = {};
@@ -495,12 +556,14 @@ const Visualization = ({ keyword, onBack }) => {
       return out;
     }
     let total = 0;
+    // 고유 기사들 추적
+    const allUnique = new Set();
     for (const k of Object.keys(frameSetRaw)) {
       const arr = Array.isArray(frameSetRaw[k]) ? frameSetRaw[k] : [];
       out[k] = arr.length;
-      total += arr.length;
+      arr.forEach(a => allUnique.add(a.link || a.title));
     }
-    out['전체'] = total;
+    out['전체'] = allUnique.size;
     return out;
   }, [frameSetRaw]);
 
@@ -508,7 +571,11 @@ const Visualization = ({ keyword, onBack }) => {
     if (!frameSetRaw || typeof frameSetRaw !== 'object') return [];
     if (activeFrameTab === '전체') {
       const all = [];
-      for (const k of Object.keys(frameSetRaw)) {
+      const keysToUse = activeDimTab === '전체' 
+        ? Object.keys(frameSetRaw) 
+        : Object.keys(FRAME_DIMENSIONS[activeDimTab]?.types || {});
+        
+      for (const k of keysToUse) {
         const arr = Array.isArray(frameSetRaw[k]) ? frameSetRaw[k] : [];
         all.push(...arr.map((x) => ({ ...x, __frame_key: k })));
       }
@@ -520,7 +587,7 @@ const Visualization = ({ keyword, onBack }) => {
       keyword,
       issueKeywords
     );
-  }, [frameSetRaw, activeFrameTab, newsByLink, keyword, issueKeywords]);
+  }, [frameSetRaw, activeFrameTab, activeDimTab, newsByLink, keyword, issueKeywords]);
 
   const issueMap = useMemo(() => classifyArticlesToIssues(enrichedNewsArticles, issueClusters), [enrichedNewsArticles, issueClusters]);
 
@@ -533,7 +600,7 @@ const Visualization = ({ keyword, onBack }) => {
     const term = safeLower(searchTerm);
     return list.filter((a) => {
       const t = safeLower(a?.title);
-      const d = safeLower(a?.description_full || a?.description || a?.full_text || '');
+      const d = safeLower(a?.full_text || a?.description_full || a?.description || '');
       return t.includes(term) || d.includes(term);
     });
   }, [viewMode, frameArticles, issueMap, activeIssueTab, searchTerm]);
@@ -644,6 +711,7 @@ const Visualization = ({ keyword, onBack }) => {
             >
               이슈(클러스터)
             </button>
+            {/* 별도의 사설 페이지로 이동하도록 UI에서 제거됨 */}
           </div>
           
           <div className="search-bar-box">
@@ -657,17 +725,39 @@ const Visualization = ({ keyword, onBack }) => {
           </div>
 
           <div className="tabs-group">
-            {viewMode === 'frame'
-              ? frameTabs.map((k) => (
+            {viewMode === 'frame' ? (
+              <>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '8px', width: '100%' }}>
                   <button
-                    key={k}
-                    className={`tab-btn ${activeFrameTab === k ? 'active' : ''}`}
-                    onClick={() => setActiveFrameTab(k)}
+                    className={`tab-btn ${activeDimTab === '전체' ? 'active' : ''}`}
+                    onClick={() => { setActiveDimTab('전체'); setActiveFrameTab('전체'); }}
                   >
-                    {k === '전체' ? '전체' : getFrameLabel(k)} ({frameTabCounts[k] || 0})
+                    전체 차원
                   </button>
-                ))
-              : issueClusters.map((cluster) => (
+                  {Object.entries(FRAME_DIMENSIONS).map(([dimKey, dim]) => (
+                    <button
+                      key={dimKey}
+                      className={`tab-btn ${activeDimTab === dimKey ? 'active' : ''}`}
+                      onClick={() => { setActiveDimTab(dimKey); setActiveFrameTab('전체'); }}
+                    >
+                      {dim.label}
+                    </button>
+                  ))}
+                </div>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', width: '100%' }}>
+                  {frameTabs.map((k) => (
+                    <button
+                      key={k}
+                      className={`tab-btn ${activeFrameTab === k ? 'active' : ''}`}
+                      onClick={() => setActiveFrameTab(k)}
+                    >
+                      {k === '전체' ? '전체' : getFrameLabel(k)} ({frameTabCounts[k] || 0})
+                    </button>
+                  ))}
+                </div>
+              </>
+            ) : (
+                issueClusters.map((cluster) => (
                   <button
                     key={cluster.key}
                     className={`tab-btn ${activeIssueTab === cluster.key ? 'active' : ''}`}
@@ -675,114 +765,131 @@ const Visualization = ({ keyword, onBack }) => {
                   >
                     {cluster.label} ({cluster.count})
                   </button>
-                ))}
+                ))
+            )}
             {viewMode === 'issue' && loadingClusters && (
               <span style={{ color: 'white', fontSize: '0.9em', marginLeft: '10px' }}>이슈 추출 중...</span>
+            )}
+            {viewMode === 'issue' && (
+              <div style={{ marginLeft: 12 }}>
+                <button
+                  className="main-btn"
+                  onClick={() => extractIssueClusters(newsArticles, keyword)}
+                  disabled={loadingClusters || !newsArticles.length}
+                >이슈 추출</button>
+              </div>
             )}
           </div>
         </div>
       </header>
 
       <main className="viz-content">
-        <div className="frame-info-card">
-          <div className="frame-header-line">
-            <h2 className="frame-title">
-              📌 {viewMode === 'frame'
-                ? (activeFrameTab === '전체' ? '전체' : getFrameLabel(activeFrameTab))
-                : activeIssueTab}{' '}분석
-            </h2>
-            <div className="frame-stats">
-              <span>총 기사 수: <strong>{activeArticles.length}</strong></span>
-              <span> 평균 길이: <strong>{averageArticleLength}자</strong></span>
-            </div>
-          </div>
-        </div>
-
-        <div className="articles-grid">
-          {activeArticles.map((article, i) => (
-            <div
-              key={`${article?.link || 'no-link'}-${i}`}
-              className="article-card"
-            >
-              <div className="card-image-wrap" style={{ backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '200px', overflow: 'hidden' }}>
-                { (article.imageUrl || article.image_url) ? (
-                  <a
-                    href={article.link || article.originallink || '#'}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={(e) => { if (!article.link && !article.originallink) e.preventDefault(); }}
-                    style={{ display: 'block', width: '100%', height: '100%' }}
-                  >
-                    <img 
-                      src={article.imageUrl || article.image_url} 
-                      alt="news" 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.parentNode.innerHTML = '<div style="color:#999;font-size:14px;">이미지를 불러올 수 없습니다</div>';
-                      }}
-                    />
-                  </a>
-                ) : (
-                  <div style={{ color: '#999', fontSize: '14px' }}>관련 이미지 없음</div>
-                )}
-              </div>
-              <div className="card-header-bar">
-                {article.link ? (
-                  <a
-                    href={article.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="card-title link-title"
-                    dangerouslySetInnerHTML={{ __html: highlightText(cleanTitle(article.title), keyword) }}
-                  />
-                ) : (
-                  <h3 className="card-title" dangerouslySetInnerHTML={{ __html: highlightText(cleanTitle(article.title), keyword) }} />
-                )}
-              </div>
-              <div className="card-body">
-                <p className="card-description" dangerouslySetInnerHTML={{ 
-                  __html: highlightText((article.description_full || article.description || "").slice(0, 160) + "...", keyword) 
-                }} />
-                <div className="card-footer-tags">
-                  <span className="tag frame-tag">
-                    {viewMode === 'frame'
-                      ? getFrameLabel(article.__frame_key || activeFrameTab)
-                      : activeIssueTab}
-                  </span>
-                  <span className="tag">기사 #{i + 1}</span>
-                  <span className="tag date">{article.pubDate?.split(' ')[0]}</span>
+          <>
+            <div className="frame-info-card">
+              <div className="frame-header-line">
+                <h2 className="frame-title">
+                  📌 {viewMode === 'frame'
+                    ? (activeFrameTab === '전체' ? '전체' : getFrameLabel(activeFrameTab))
+                    : activeIssueTab}{' '}분석
+                </h2>
+                <div className="frame-stats">
+                  <span>총 기사 수: <strong>{activeArticles.length}</strong></span>
+                  <span> 평균 길이: <strong>{averageArticleLength}자</strong></span>
                 </div>
+              </div>
+            </div>
 
-                <div className="card-more-panel" onClick={(e) => e.stopPropagation()}>
-                  <div className="card-link-actions">
-                    <button className="summary-link-btn" onClick={() => { openModal(article); setIsModalExpanded(true); }}>
-                      본문 더보기
-                    </button>
-                    {article.link && (
-                      <a className="summary-link-btn" href={article.link} target="_blank" rel="noreferrer">
-                        원문 링크
+            <div className="articles-grid">
+              {activeArticles.map((article, i) => (
+                <div
+                  key={`${article?.link || 'no-link'}-${i}`}
+                  className="article-card"
+                >
+                  <div className="card-image-wrap" style={{ backgroundColor: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '200px', overflow: 'hidden' }}>
+                    { (article.imageUrl || article.image_url) ? (
+                      <a
+                        href={article.link || article.originallink || '#'}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => { if (!article.link && !article.originallink) e.preventDefault(); }}
+                        style={{ display: 'block', width: '100%', height: '100%' }}
+                      >
+                        <img 
+                          src={article.imageUrl || article.image_url} 
+                          alt="news" 
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.parentNode.innerHTML = '<div style="color:#999;font-size:14px;">이미지를 불러올 수 없습니다</div>';
+                          }}
+                        />
                       </a>
-                    )}
-                  </div>
-                  <div className="summary-tags">
-                    {deriveArticleTags(article, issueKeywords, keyword).map((tag) => (
-                      <span key={`${article.link || i}-${tag}`} className="summary-tag">#{formatTag(tag)}</span>
-                    ))}
-                  </div>
-                  <div className="card-evidence-box">
-                    <h4 className="evidence-title inline">프레임 근거</h4>
-                    {Array.isArray(article.evidence_sentences) && article.evidence_sentences.length > 0 ? (
-                      <p className="card-evidence-text" dangerouslySetInnerHTML={{ __html: highlightText(article.evidence_sentences[0], keyword) }} />
                     ) : (
-                      <p className="card-evidence-text muted">근거 문장을 찾지 못했습니다.</p>
+                      <div style={{ color: '#999', fontSize: '14px' }}>관련 이미지 없음</div>
                     )}
+                  </div>
+                  <div className="card-header-bar">
+                    {article.link ? (
+                      <a
+                        href={article.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="card-title link-title"
+                        dangerouslySetInnerHTML={{ __html: highlightText(cleanTitle(article.title), keyword) }}
+                      />
+                    ) : (
+                      <h3 className="card-title" dangerouslySetInnerHTML={{ __html: highlightText(cleanTitle(article.title), keyword) }} />
+                    )}
+                  </div>
+                  <div className="card-body">
+                    <p className="card-description" dangerouslySetInnerHTML={{ 
+                      __html: highlightText((article.description_full || article.description || "").slice(0, 160) + "...", keyword) 
+                    }} />
+                    <div className="card-footer-tags">
+                      <span className="tag frame-tag" style={{
+                        background: FRAME_META[article.frame]?.bg || '',
+                        color: FRAME_META[article.frame]?.color || ''
+                      }}>
+                        {viewMode === 'frame'
+                          ? (article.frame ? `${FRAME_META[article.frame]?.icon || ''} ${FRAME_META[article.frame]?.label_kr || article.frame}` : getFrameLabel(article.__frame_key || activeFrameTab))
+                          : activeIssueTab}
+                      </span>
+                      <span className="tag">기사 #{i + 1}</span>
+                      <span className="tag date">{article.pubDate?.split(' ')[0]}</span>
+                    </div>
+
+                    <div className="card-more-panel" onClick={(e) => e.stopPropagation()}>
+                      <div className="card-link-actions">
+                        <button className="summary-link-btn" onClick={() => { openModal(article); setIsModalExpanded(true); }}>
+                          본문 더보기
+                        </button>
+                        {article.link && (
+                          <a className="summary-link-btn" href={article.link} target="_blank" rel="noreferrer">
+                            원문 링크
+                          </a>
+                        )}
+                      </div>
+                      <div className="summary-tags">
+                        {deriveArticleTags(article, issueKeywords, keyword).map((tag) => (
+                          <span key={`${article.link || i}-${tag}`} className="summary-tag">#{formatTag(tag)}</span>
+                        ))}
+                      </div>
+                      <div className="card-evidence-box">
+                        <h4 className="evidence-title inline">프레임 근거</h4>
+                        {Array.isArray(article.evidence) && article.evidence.length > 0 ? (
+                          <p className="card-evidence-text" dangerouslySetInnerHTML={{ __html: highlightText(article.evidence[0].evidence, keyword) }} />
+                        ) : Array.isArray(article.evidence_sentences) && article.evidence_sentences.length > 0 ? (
+                          <p className="card-evidence-text" dangerouslySetInnerHTML={{ __html: highlightText(article.evidence_sentences[0], keyword) }} />
+                        ) : (
+                          <p className="card-evidence-text muted">근거 문장을 찾지 못했습니다.</p>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
       </main>
 
       {/* 모달: 이미지 2번 스타일 반영 (본문 아래 해시태그, 버튼, 근거 추가) */}
@@ -800,8 +907,19 @@ const Visualization = ({ keyword, onBack }) => {
 
             <div className="modal-summary-card">
               <div className="summary-top-row">
-                <div className="summary-pill-row">
-                  <span className="summary-pill primary">{getFrameLabel(modalArticle.__frame_key || modalArticle.frame_key || activeFrameTab)}</span>
+                <div className="summary-pill-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  {modalArticle.frames ? (
+                    modalArticle.frames.map((f, idx) => {
+                      const meta = FRAME_META[f.type] || { color: '#6b7280', bg: '#f9fafb', icon: '📄', label_kr: f.type };
+                      return (
+                        <span key={idx} className="summary-pill" style={{ background: meta.bg, color: meta.color, border: `1px solid ${meta.color}` }}>
+                          {meta.icon} {meta.label_kr} {f.score ? `${Math.round(f.score * 100)}%` : ''}
+                        </span>
+                      );
+                    })
+                  ) : (
+                    <span className="summary-pill primary">{getFrameLabel(modalArticle.__frame_key || modalArticle.frame_key || activeFrameTab)}</span>
+                  )}
                   <span className="summary-pill muted">기사 #{modalArticleIndex >= 0 ? modalArticleIndex + 1 : activeArticles.indexOf(modalArticle) + 1}</span>
                 </div>
                 <div className="summary-links">
@@ -847,42 +965,70 @@ const Visualization = ({ keyword, onBack }) => {
               </section>
 
               <section className="modal-section framing-type-section expand-target panel-block">
-                <h4 className="section-title">프레이밍 유형</h4>
+                <h4 className="section-title">분석된 프레임 유형</h4>
                 <div className="framing-card-grid">
-                  <div className="framing-card equivalence">
-                    <div className="framing-title">등가 프레이밍(손익/비교/선택/수치)</div>
-                    <p className="framing-desc" dangerouslySetInnerHTML={{
-                      __html: Array.isArray(modalArticle.evidence_sentences) && modalArticle.evidence_sentences[0]
-                        ? highlightText(modalArticle.evidence_sentences[0], keyword)
-                        : '등가 프레이밍 문장을 찾지 못했습니다.'
-                    }} />
-                </div>
-                <div className="framing-card emphasis">
-                  <div className="framing-title">강조 프레이밍(질문지 단서)</div>
-                  <p className="framing-desc" dangerouslySetInnerHTML={{
-                      __html: EMPHASIS_PROMPT
-                  }} />
-                </div>
-              </div>
-            </section>
-
-              <section ref={evidenceSectionRef} className="modal-section evidence-detail-section expand-target panel-block">
-                <h4 className="evidence-title">근거 문장</h4>
-                <div className="evidence-content-box">
-                  <div className="evidence-sentences">
-                    {Array.isArray(modalArticle.evidence_sentences) && modalArticle.evidence_sentences.length > 0 ? (
-                      modalArticle.evidence_sentences.map((sentence, idx) => (
-                        <p key={idx} className="e-sentence">
-                          <span className="bullet">•</span>
-                          <span dangerouslySetInnerHTML={{ __html: highlightText(sentence, keyword) }} />
-                        </p>
-                      ))
-                    ) : (
-                      <p className="e-sentence muted">기사 사용 프레임 분석 근거 문장을 찾지 못했습니다.</p>
-                    )}
-                  </div>
+                  {modalArticle.frames ? (
+                    modalArticle.frames.map((f, idx) => {
+                      const meta = FRAME_META[f.type] || { color: '#6b7280', label_kr: f.type };
+                      const evidenceObj = (modalArticle.evidence || []).find(e => e.frame === f.type);
+                      return (
+                        <div key={idx} className="framing-card" style={{ borderLeft: `4px solid ${meta.color}` }}>
+                          <div className="framing-title" style={{ color: meta.color }}>
+                            {meta.icon} {meta.label_kr} {f.score ? `(${Math.round(f.score * 100)}%)` : ''}
+                          </div>
+                          <p className="framing-desc" dangerouslySetInnerHTML={{
+                            __html: evidenceObj 
+                              ? highlightText(evidenceObj.evidence, keyword) 
+                              : '해당 프레임에 대한 명시적 근거 문장을 찾지 못했습니다.'
+                          }} />
+                          {evidenceObj?.matched_cues && (
+                            <p style={{ fontSize: '12px', color: '#6b7280', marginTop: '4px' }}>
+                              매칭 키워드: {evidenceObj.matched_cues.join(', ')}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <>
+                      <div className="framing-card equivalence">
+                        <div className="framing-title">등가 프레이밍(손익/비교/선택/수치)</div>
+                        <p className="framing-desc" dangerouslySetInnerHTML={{
+                          __html: Array.isArray(modalArticle.evidence_sentences) && modalArticle.evidence_sentences[0]
+                            ? highlightText(modalArticle.evidence_sentences[0], keyword)
+                            : '등가 프레이밍 문장을 찾지 못했습니다.'
+                        }} />
+                      </div>
+                      <div className="framing-card emphasis">
+                        <div className="framing-title">강조 프레이밍(질문지 단서)</div>
+                        <p className="framing-desc" dangerouslySetInnerHTML={{
+                            __html: EMPHASIS_PROMPT
+                        }} />
+                      </div>
+                    </>
+                  )}
                 </div>
               </section>
+
+              {(!modalArticle.frames) && (
+                <section ref={evidenceSectionRef} className="modal-section evidence-detail-section expand-target panel-block">
+                  <h4 className="evidence-title">근거 문장</h4>
+                  <div className="evidence-content-box">
+                    <div className="evidence-sentences">
+                      {Array.isArray(modalArticle.evidence_sentences) && modalArticle.evidence_sentences.length > 0 ? (
+                        modalArticle.evidence_sentences.map((sentence, idx) => (
+                          <p key={idx} className="e-sentence">
+                            <span className="bullet">•</span>
+                            <span dangerouslySetInnerHTML={{ __html: highlightText(sentence, keyword) }} />
+                          </p>
+                        ))
+                      ) : (
+                        <p className="e-sentence muted">기사 사용 프레임 분석 근거 문장을 찾지 못했습니다.</p>
+                      )}
+                    </div>
+                  </div>
+                </section>
+              )}
             </div>
           </div>
         </div>
