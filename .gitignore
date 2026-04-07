@@ -93,3 +93,18 @@ coverage/
 # Backup files
 *.bak
 *.backup
+
+# python
+venv/
+ven/
+
+# model
+backend/algorissue/model_store/
+
+# cache
+backend/data/*.json
+
+# frontend 임시
+front/vite-project/
+
+*.bat
