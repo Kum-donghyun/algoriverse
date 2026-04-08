@@ -98,9 +98,6 @@ coverage/
 venv/
 ven/
 
-# model
-backend/algorissue/model_store/
-
 # cache
 backend/data/*.json
 
